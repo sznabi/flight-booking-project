@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <title>Repülőjegyek olcsón</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
         </ul>
         <div class="btns">
             <button class="btn">Bejelentkezés</button>
-            <button class="btn" id="reg">Regisztráció</button>
+            <a href="registration.php"><button class="btn" id="reg">Regisztráció</button></a>
         </div>
     </nav>
     <header>
