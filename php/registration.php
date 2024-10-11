@@ -23,7 +23,6 @@
 
     if (isset($_POST["submit"])) {
         $fullName = $_POST["fullname"];
-        $username = $_POST["username"];
         $email = $_POST["email"];
         $password = $_POST["password"];
         $passwordRepeat = $_POST["password_repeat"];
@@ -44,17 +43,25 @@
         if ($password !== $passwordRepeat) {
             array_push($errors, "A jelszavaknak egyeznie kell!");
         }
+
+        require_once "database.php";
+        $sql = "SELECT * FROM users WHERE email = '$email'";
+        $result = mysqli_query($conn, $sql);
+        $rowCount = mysqli_num_rows($result);
+        if ($rowCount>0) {
+            array_push($errors, "Az email már létezik!");
+        }
+
         if(count($errors)>0) {
             foreach ($errors as $error) {
                 echo "<div class='alert alert-danger'>$error</div>";
             }
         } else {
-            require_once "database.php";
             $sql = "INSERT INTO users (fullname, username, email, password) VALUES (?,?,?,?)";
             $stmt = mysqli_stmt_init($conn);
             $prepareStmt = mysqli_stmt_prepare($stmt, $sql);
             if ($prepareStmt) {
-                mysqli_stmt_bind_param($stmt, "ssss",$fullName, $username, $email, $passwordHash);
+                mysqli_stmt_bind_param($stmt, "ssss",$fullName, $email, $passwordHash);
                 mysqli_stmt_execute($stmt);
                 echo "<div class='alert alert-success'>Sikeres regisztráció!</div>";
             } else {
@@ -66,9 +73,6 @@
     <form action="registration.php" method="post">
         <div class="form-group">
             <input type="fullname" name="fullname" class="form-control" placeholder="Teljes név:">
-        </div>
-        <div class="form-group">
-            <input type="username" name="username" class="form-control" placeholder="Felhasználónév:">
         </div>
         <div class="form-group">
             <input type="email" name="email" class="form-control" placeholder="E-mail cím:">

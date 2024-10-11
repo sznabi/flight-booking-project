@@ -15,7 +15,7 @@
             <li class="link"><a href="#">Profil</a></li>
         </ul>
         <div class="btns">
-            <button class="btn">Bejelentkezés</button>
+            <a href="login.php"><button class="btn">Bejelentkezés</button></a>
             <a href="registration.php"><button class="btn" id="reg">Regisztráció</button></a>
         </div>
     </nav>
