@@ -2,7 +2,6 @@
 .btn {
     padding: .75rem 2rem;
     outline: none;
-    border: none;
     border-radius: 2rem;
     font-size: 1rem;
     font-weight: 500;
@@ -11,6 +10,8 @@
     cursor: pointer;
     transition: .3s;
     font-weight: bold;
+    background-color: white;
+    border: 3px solid #3a6d8c;
 }
 
 #reg {
@@ -114,6 +115,43 @@ header p {
     box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px;
 }
 
-.form-group{
+.form-group {
     margin-bottom: 30px;
+}
+
+footer {
+    background-color: #001f3f;
+    color: white;
+    padding: 1.5rem 0;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #3a6d8c;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
 }

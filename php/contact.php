@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
-    <title>Repülőjegyek olcsón</title>
+    <title>Kapcsolat</title>
 </head>
 <body>
     <nav>
@@ -19,16 +19,14 @@
             <a href="registration.php"><button class="btn" id="reg">Regisztráció</button></a>
         </div>
     </nav>
-    <header>
-        <h1>Éld át a repülés szabadságát!</h1>
-        <img src="../assets/header.jpg" alt="Főoldal képe" style="width: 1200px; display: block; margin: 0 auto;">
-        <p>
-            Minden repülésünk személyre szabott,
-            <br>hogy életed egyik
-            legemlékezetesebb élményét nyújtsa.
-        </p>
-        <h3>Foglalj most, és repülj velünk az égbolt felé!</h3>
-    </header>
+    <div id="contact">
+        <h2>Kapcsolat</h2>
+        <form action="submit_contact.php" method="post">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <button type="submit">Küldés</button>
+        </form>
+    </div>
     <footer>
         <div class="footer-content">
             <p>&copy; 2024 Repülőjegyek Olcsón. Minden jog fenntartva.</p>
