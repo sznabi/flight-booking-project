@@ -46,22 +46,5 @@
             </div>
         </form>
     </div>
-
-    <!-- próba próba -->
-
-    <div class="container">
-        <form action="login.php" method="post">
-            <div class="form-group">
-                <input type="email" placeholder="Írd be az emailed!" name="email" class="form-control">
-            </div>
-            <div class="form-group">
-                <input type="password" placeholder="Írd be a jelszavad!" name="password" class="form-control">
-            </div>
-            <div class="form-btn">
-                <input type="submit" value="Bejelentkezés" name="login" class="btn btn-primary">
-            </div>
-        </form>
-    </div>
-
 </body>
 </html>
