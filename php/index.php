@@ -27,7 +27,7 @@
             <br>hogy életed egyik
             legemlékezetesebb élményét nyújtsa.
         </p>
-        <h3>Foglalj most, és repülj velünk az égbolt felé! MÚKODJ VÉGRE</h3>
+        <h3>Foglalj most, és repülj velünk az égbolt felé!</h3>
     </header>
     <footer>
         <div class="footer-content">
