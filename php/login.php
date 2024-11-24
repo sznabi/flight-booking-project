@@ -3,48 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bejelentkezési oldal</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Bejelentkezés</title>
 </head>
-<body>
-    <?php
-        if (isset($_POST["login"])) {
-            $email = $_POST["email"];
-            $password = $_POST["password"];
-
-            require_once "database.php";
-            $sql = "SELECT * FROM users WHERE email = '$email'";
-            $result = mysqli_query($conn, $sql);
-            $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
-
-            if ($user) {
-                if (password_verify($password, $user["password"])) {
-                    header("Location : index.php"); // ide fogja iranyitani a user-t bejelentkezes utan, profil oldal majd johet
-                    die();
-                } else {
-                    echo "<div class='alert alert-danger'>A jelszó nem helyes!</div>";
-                }
-            } else {
-                echo "<div class='alert alert-danger'>Az email nem létezik!</div>";
-            }
-
-        }
-    
-    ?>
-
+<body class="login-body">
     <div class="container">
-        <form action="login.php" method="post">
-            <div class="form-group">
-                <input type="email" placeholder="Írd be az emailed!" name="email" class="form-control">
-            </div>
-            <div class="form-group">
-                <input type="password" placeholder="Írd be a jelszavad!" name="password" class="form-control">
-            </div>
-            <div class="form-btn">
-                <input type="submit" value="Bejelentkezés" name="login" class="btn btn-primary">
-            </div>
-        </form>
+    <?php
+    session_start();
+
+    // Ha már be van jelentkezve, irányítsuk át a kezdőoldalra
+    if (isset($_SESSION["user_id"])) {
+        header("Location: index.php");
+        exit();
+    }
+
+    if (isset($_POST["submit"])) {
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+
+        // Ha valamelyik mező üres, hibaüzenetet jelenítünk meg
+        if(empty($email) OR empty($password)) {
+            echo "<div class='alert alert-danger'>Minden mezőt ki kell tölteni!</div>";
+        } else {
+            require_once "database.php";
+            $sql = "SELECT * FROM users WHERE email = '$email'";  // Az email cím alapján keresünk a táblában
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) == 0) {
+                // Ha nincs ilyen email cím, hibaüzenetet jelenítünk meg
+                echo "<div class='alert alert-danger'>Nincs ilyen felhasználó!</div>";
+            } else {
+                // Ha létezik a felhasználó, ellenőrizzük a jelszót
+                $row = mysqli_fetch_assoc($result);
+                if (password_verify($password, $row['password'])) {
+                    $_SESSION["user_id"] = $row["id"];  // Ha a jelszó helyes, session-ben tároljuk a felhasználót
+                    $_SESSION["fullname"];
+                    header("Location: index.php");  // A sikeres bejelentkezés után irányítás a kezdőoldalra
+                    exit();
+                } else {
+                    // Ha a jelszó helytelen, hibaüzenetet jelenítünk meg
+                    echo "<div class='alert alert-danger'>Hibás jelszó!</div>";
+                }
+            }
+        }
+    }
+    ?>
+    <form action="login.php" method="post">
+        <div class="form-group">
+            <input type="email" name="email" class="form-control" placeholder="E-mail cím:">
+        </div>
+        <div class="form-group">
+            <input type="password" name="password" class="form-control" placeholder="Jelszó:">
+        </div>
+        <div class="form-btn">
+            <input type="submit" name="submit" class="btn btn-primary" value="Bejelentkezés">
+        </div>
+    </form>
     </div>
 </body>
 </html>

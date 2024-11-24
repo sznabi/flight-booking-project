@@ -45,25 +45,29 @@
         }
 
         require_once "database.php";
-        $sql = "SELECT * FROM users WHERE email = '$email'";
+        $sql = "SELECT * FROM users WHERE email = '$email'";  // Most már csak az email címet ellenőrizzük
         $result = mysqli_query($conn, $sql);
         $rowCount = mysqli_num_rows($result);
-        if ($rowCount>0) {
-            array_push($errors, "Az email már létezik!");
+        if ($rowCount > 0) {
+            array_push($errors, "Ez az email cím már regisztrálva van!");
         }
 
-        if(count($errors)>0) {
+        if(count($errors) > 0) {
             foreach ($errors as $error) {
                 echo "<div class='alert alert-danger'>$error</div>";
             }
         } else {
-            $sql = "INSERT INTO users (fullname, username, email, password) VALUES (?,?,?,?)";
+            $sql = "INSERT INTO users (fullname, email, password) VALUES (?,?,?)";
             $stmt = mysqli_stmt_init($conn);
             $prepareStmt = mysqli_stmt_prepare($stmt, $sql);
             if ($prepareStmt) {
-                mysqli_stmt_bind_param($stmt, "ssss",$fullName, $email, $passwordHash);
+                mysqli_stmt_bind_param($stmt, "sss", $fullName, $email, $passwordHash);
                 mysqli_stmt_execute($stmt);
                 echo "<div class='alert alert-success'>Sikeres regisztráció!</div>";
+                
+                // Irányítás a kezdőoldalra
+                header("Location: index.php");
+                exit();
             } else {
                 die("Hiba..");
             }
