@@ -5,7 +5,7 @@
     border-radius: 2rem;
     font-size: 1rem;
     font-weight: 500;
-    color: white;
+    color: #3a6d8c;
     background-color: #3a6d8c;
     cursor: pointer;
     transition: .3s;
@@ -22,12 +22,12 @@
 
 #reg:hover {
     background-color: #001f3f;
-    border: 3px solid #001f3f;
     color: white;
 }
 
 .btn:hover {
-    background-color: #001f3f;
+    background-color: #3a6d8c;
+    color: white;
 }
 
 .btns {
