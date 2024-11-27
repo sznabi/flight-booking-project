@@ -72,14 +72,52 @@ session_start(); // Session indítása
                     <p>Adja meg a visszaút dátumát</p>
                 </div>
             </div>
-            <button class="btn"><i class="ri-search-line"></i> Keresés</button>
+            <button class="btn"><i class="ri-search-line"></i></button>
         </form>
+    </section>
+
+    <section class="section__container plan__container">
+    <p class="subheader">UTAZÁSI SEGÍTSÉG</p>
+    <h2 class="section__header">Készülj fel az utazásodra magabiztosan</h2>
+    <p class="description">
+        Tudj meg mindent az indulás előtti fontos teendőkről és készítsd fel magad, hogy utazásod zökkenőmentes legyen.
+    </p>
+        <div class="plan__grid">
+            <div class="plan__content">
+                <span class="number">01</span>
+                <h4>Dokumentumok és vízum</h4>
+                <p>
+                    Ellenőrizd, hogy az útleveled érvényes-e, és nézd meg, szükséges-e vízum az úti célodhoz. Nyomtass ki minden fontos dokumentumot, mint például a repülőjegyet és a szállás visszaigazolását.
+                </p>
+                <span class="number">02</span>
+                <h4>Csomagolási lista</h4>
+                <p>
+                    Készíts egy listát a legszükségesebb tárgyakról, például ruházatról, gyógyszerekről, és elektronikáról. Ellenőrizd az időjárás-előrejelzést, és pakolj ennek megfelelően.
+                </p>
+                <span class="number">03</span>
+                <h4>Utazási biztosítás</h4>
+                <p>
+                    Gondoskodj róla, hogy rendelkezz érvényes utazási biztosítással, amely fedezi a váratlan eseményeket, például az orvosi költségeket vagy a járattörléseket.
+                </p>
+                <span class="number">04</span>
+                <h4>Úti cél információk</h4>
+                <p>
+                    Nézz utána az úti célod fontos tudnivalóinak, például a helyi szokásoknak, közlekedési lehetőségeknek, és a pénznemnek. Így könnyebben eligazodsz, amint megérkezel.
+                </p>
+            </div>
+            <div class="plan__image">
+                <img src="../assets/terv1.jpg" alt="Dokumentumok ellenőrzése" />
+                <img src="../assets/terv2.jpg" alt="Csomagolási lista" />
+                <img src="../assets/terv3.jpg" alt="Biztosítás kötése" />
+            </div>
+        </div>
     </section>
 
     <footer>
         <div class="footer-content">
-            <p>&copy; 2024 Repülőjegyek Olcsón. Minden jog fenntartva.</p>
+            <p>&copy; 2024 Légvonal <br>Az oldal egy egyetemi projekt keretében készült.</p>
             <ul class="footer-links">
+                <li class="link"><a href="index.php">Kezdőoldal</a></li>
                 <li class="link"><a href="contact.php">Kapcsolat</a></li>
                 <li class="link"><a href="profile.php">Profil</a></li>
             </ul>
