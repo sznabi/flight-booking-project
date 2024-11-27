@@ -3,9 +3,8 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 ?>
-
 <nav>
-    <div class="nav_logo">Légvonal</div>
+    <div class="nav_logo"><a href="index.php">Légvonal</a></div>
     <ul class="nav_links">
         <li class="link"><a href="index.php">Kezdőoldal</a></li>
         <li class="link"><a href="contact.php">Kapcsolat</a></li>

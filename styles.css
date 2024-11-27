@@ -58,10 +58,17 @@ nav {
     gap: 1rem;
 }
 
-.nav_logo {
+.nav_logo a {
     font-size: 1.5rem;
     font-weight: 600;
     color: #001f3f;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav_logo a:hover {
+    color: #3a6d8c;
 }
 
 .nav_links {
@@ -155,3 +162,112 @@ footer p {
     margin: 0;
     font-size: 1rem;
 }
+  
+  .booking__container {
+    border-radius: 2rem;
+    border: 1px solid #f1f5f9;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .booking__nav {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    background-color: #f1f5f9;
+    border-radius: 5px;
+  }
+  
+  .booking__nav span {
+    flex: 1;
+    padding: 1rem 2rem;
+    font-weight: 500;
+    color: #64748b;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .booking__nav span:nth-child(2) {
+    color: white;
+    background-color: #3d5cb8;
+  }
+  
+  .booking__container form {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) auto;
+    gap: 1rem;
+  }
+  
+  .booking__container .form__group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .booking__container .form__group span {
+    padding: 10px;
+    font-size: 1.5rem;
+    color: #0f172a;
+    background-color: #f1f5f9;
+    border-radius: 1rem;
+  }
+  
+  .booking__container .input__content {
+    width: 100%;
+  }
+  
+  .booking__container .input__group {
+    width: 100%;
+    position: relative;
+  }
+  
+  .booking__container label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #0f172a;
+    pointer-events: none;
+    transition: 0.3s;
+  }
+  
+  .booking__container input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #3d5cb8;
+    color: #0f172a;
+  }
+  
+  .booking__container input:focus ~ label {
+    font-size: 0.8rem;
+    top: 0;
+  }
+  
+  .booking__container .form__group p {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: #64748b;
+  }
+  
+  .booking__container .btn {
+    padding: 1rem;
+    font-size: 1.5rem;
+    outline: none;
+    border: none;
+    background-color: #3d5cb8;
+    color: white;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .booking__container .btn:hover {
+    background-color: #334c99;
+  }  
