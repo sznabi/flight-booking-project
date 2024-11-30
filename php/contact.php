@@ -26,6 +26,7 @@ include 'navbar.php';
         <div class="footer-content">
             <p>&copy; 2024 Repülőjegyek Olcsón. Minden jog fenntartva.</p>
             <ul class="footer-links">
+                <li class="link"><a href="index.php">Kezdőoldal</a></li>
                 <li class="link"><a href="contact.php">Kapcsolat</a></li>
                 <li class="link"><a href="profile.php">Profil</a></li>
             </ul>
@@ -95,15 +96,5 @@ include 'navbar.php';
     text-align: center;
     }
 </style>
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 Légvonal <br>Az oldal egy egyetemi projekt keretében készült.</p>
-            <ul class="footer-links">
-                <li class="link"><a href="index.php">Kezdőoldal</a></li>
-                <li class="link"><a href="contact.php">Kapcsolat</a></li>
-                <li class="link"><a href="profile.php">Profil</a></li>
-            </ul>
-        </div>
-    </footer>
 </body>
 </html>

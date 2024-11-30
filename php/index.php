@@ -26,9 +26,9 @@ session_start(); // Session indítása
     </header>
 
     <section class="section__container booking__container">
-        <div class="booking__nav">
-            <span>Turista osztály</span>
-            <span>Első osztály</span>
+        <div class="booking__nav" id="classSelector">
+            <span data-type="turista" class="active">Turista osztály</span>
+            <span data-type="elso">Első osztály</span>
         </div>
         <form>
             <div class="form__group">
@@ -122,5 +122,6 @@ session_start(); // Session indítása
             </ul>
         </div>
     </footer>
+<script src="../script.js"></script>
 </body>
 </html>

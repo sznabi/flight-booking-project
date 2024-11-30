@@ -183,7 +183,7 @@ footer p {
     box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
     margin-top: 5rem;
   }
-  
+
   .booking__nav {
     max-width: 600px;
     margin: auto;
@@ -192,29 +192,43 @@ footer p {
     background-color: #f1f5f9;
     border-radius: 5px;
   }
-  
+
   .booking__nav span {
     flex: 1;
     padding: 1rem 2rem;
     font-weight: 500;
-    color: #64748b;
     text-align: center;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
   }
-  
-  .booking__nav span:nth-child(2) {
+
+  .booking__nav span.active {
+    background-color: #3a6d8c;
     color: white;
-    background-color: #3d5cb8;
   }
-  
+
+  .booking__nav span:not(.active) {
+    color: #64748b;
+  }
+
   .booking__container form {
     margin-top: 4rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr) auto;
     gap: 1rem;
   }
-  
+
+  .booking__container input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 1px solid #3a6d8c;
+    outline: none;
+    color: #0f172a;
+  }
+
   .booking__container .form__group {
     display: flex;
     align-items: center;
@@ -250,16 +264,6 @@ footer p {
     transition: 0.3s;
   }
   
-  .booking__container input {
-    width: 100%;
-    padding: 10px 0;
-    font-size: 1rem;
-    outline: none;
-    border: none;
-    border-bottom: 1px solid #3d5cb8;
-    color: #0f172a;
-  }
-  
   .booking__container input:focus ~ label {
     font-size: 0.8rem;
     top: 0;
@@ -276,7 +280,7 @@ footer p {
     font-size: 1.5rem;
     outline: none;
     border: none;
-    background-color: #3d5cb8;
+    background-color: #3a6d8c;
     color: white;
     border-radius: 2rem;
     cursor: pointer;
@@ -284,7 +288,7 @@ footer p {
   }
   
   .booking__container .btn:hover {
-    background-color: #334c99;
+    background-color: #617f91;
   }
 
   /* UTAZASI SEGITSEG CSS */
@@ -378,7 +382,6 @@ footer p {
     max-width: 230px;
     transform: translate(calc(-50% + 9rem), calc(-50% + 5rem));
   }
-
 
     /* MEDIA QUERY */
 
