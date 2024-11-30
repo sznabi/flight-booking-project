@@ -383,6 +383,7 @@ footer p {
     transform: translate(calc(-50% + 9rem), calc(-50% + 5rem));
   }
 
+
     /* MEDIA QUERY */
 
   @media (width < 900px) {

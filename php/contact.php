@@ -71,7 +71,6 @@ include 'navbar.php';
     }
 
     #contact button {
-    color: ;
     padding: 10px 20px;
     margin-top: 15px;
     font-size: 16px;
@@ -97,6 +96,15 @@ include 'navbar.php';
     margin-bottom: 20px;
     }
 </style>
-
+<footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Légvonal <br>Az oldal egy egyetemi projekt keretében készült.</p>
+            <ul class="footer-links">
+                <li class="link"><a href="index.php">Kezdőoldal</a></li>
+                <li class="link"><a href="contact.php">Kapcsolat</a></li>
+                <li class="link"><a href="profile.php">Profil</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>

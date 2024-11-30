@@ -1,10 +1,14 @@
+<?php
+// Betöltjük a navbar.php fájlt, amely a navigációs sávot tartalmazza
+include 'navbar.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Regisztrációs oldal</title>
 </head>
 <body class="reg-body">
@@ -92,5 +96,74 @@
         </div>
     </form>
     </div>
+    <style>
+        form {
+            max-width: 400px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background-color: #f5f5f5;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px 15px;
+            font-size: 1rem;
+            outline: none;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            background-color: #ffffff;
+            color: #001f3f;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #1e90ff;
+            box-shadow: 0 0 5px rgba(30, 144, 255, 0.5);
+        }
+
+        .form-group input::placeholder {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .form-btn {
+            text-align: center;
+        }
+
+        .form-btn input {
+            width: 50%;
+            padding: 10px 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            background-color: #1e90ff;
+            color: #ffffff;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .form-btn input:hover {
+            background-color: #334c99;
+            transform: scale(1.02);
+        }
+    </style>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Légvonal <br>Az oldal egy egyetemi projekt keretében készült.</p>
+            <ul class="footer-links">
+                <li class="link"><a href="index.php">Kezdőoldal</a></li>
+                <li class="link"><a href="contact.php">Kapcsolat</a></li>
+                <li class="link"><a href="profile.php">Profil</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>
