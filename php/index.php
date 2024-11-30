@@ -27,8 +27,7 @@ session_start(); // Session indítása
 
     <section class="section__container booking__container">
         <div class="booking__nav">
-            <span>Turistaosztály</span>
-            <span>Üzleti osztály</span>
+            <span>Turista osztály</span>
             <span>Első osztály</span>
         </div>
         <form>
