@@ -51,6 +51,7 @@ include 'navbar.php';
         }
     }
     ?>
+    <h2>Bejelentkezés</h2>
     <form action="login.php" method="post">
         <div class="form-group">
             <input type="email" name="email" class="form-control" placeholder="E-mail cím:">
@@ -64,7 +65,7 @@ include 'navbar.php';
     </form>
     </div>
     <style>
-                form {
+        form {
             max-width: 400px;
             margin: 2rem auto;
             padding: 1.5rem;
@@ -117,6 +118,20 @@ include 'navbar.php';
             transform: scale(1.02);
         }
 
+        .login-body h2 {
+            text-align: center;
+        }
+
     </style>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Légvonal <br>Az oldal egy egyetemi projekt keretében készült.</p>
+            <ul class="footer-links">
+                <li class="link"><a href="index.php">Kezdőoldal</a></li>
+                <li class="link"><a href="contact.php">Kapcsolat</a></li>
+                <li class="link"><a href="profile.php">Profil</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>

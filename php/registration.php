@@ -78,6 +78,7 @@ include 'navbar.php';
         }
     }
     ?>
+    <h2>Regisztráció</h2>
     <form action="registration.php" method="post">
         <div class="form-group">
             <input type="fullname" name="fullname" class="form-control" placeholder="Teljes név:">
@@ -97,6 +98,10 @@ include 'navbar.php';
     </form>
     </div>
     <style>
+        .reg-body {
+            padding: 0px;
+        }
+        
         form {
             max-width: 400px;
             margin: 2rem auto;
@@ -142,17 +147,16 @@ include 'navbar.php';
             padding: 10px 15px;
             font-size: 1rem;
             font-weight: bold;
-            background-color: #1e90ff;
-            color: #ffffff;
-            border: none;
-            border-radius: 0.5rem;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .form-btn input:hover {
-            background-color: #334c99;
             transform: scale(1.02);
+        }
+
+        .reg-body h2 {
+            text-align: center;
         }
     </style>
     <footer>

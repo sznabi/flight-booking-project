@@ -34,22 +34,21 @@ include 'navbar.php';
 
 <style>
     /* KAPCSOLAT CSS */
+
+    form {
+        max-width: 400px;
+        margin: 2rem auto;
+        padding: 1.5rem;
+        background-color: #f5f5f5;
+        border-radius: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
     #contact {
-    margin-top: 75px;
-    margin-right: auto;
-    margin-left: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    max-width: 450px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-width: 800px !important;
+        margin: 0 auto;
+        padding: 50px;
+        box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px;
     }
 
     #contact input[type="text"],
@@ -88,15 +87,15 @@ include 'navbar.php';
     display: block;
     margin-top: 15px;
     font-size: 14px;
-    margin-left: -160px;
     }
 
     #contact h2 {
     margin-top: 15px;
     margin-bottom: 20px;
+    text-align: center;
     }
 </style>
-<footer>
+    <footer>
         <div class="footer-content">
             <p>&copy; 2024 Légvonal <br>Az oldal egy egyetemi projekt keretében készült.</p>
             <ul class="footer-links">
