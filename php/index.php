@@ -26,54 +26,87 @@ session_start(); // Session indítása
     </header>
 
     <section class="section__container booking__container">
-        <div class="booking__nav" id="classSelector">
-            <span data-type="turista" class="active">Turista osztály</span>
-            <span data-type="elso">Első osztály</span>
+    <div class="booking__nav" id="classSelector">
+        <span data-type="turista" class="active">Turista osztály</span>
+        <span data-type="elso">Első osztály</span>
+    </div>
+    <form>
+        <!-- Hová szeretne utazni? -->
+        <div class="form__group">
+            <span><i class="ri-map-pin-line"></i></span>
+            <div class="input__content">
+                <div class="input__group">
+                    <select>
+                        <option value="destination1">Helyszín 1</option>
+                        <option value="destination2">Helyszín 2</option>
+                        <option value="destination3">Helyszín 3</option>
+                    </select>
+                    <label>Hová utazik?</label>
+                </div>
+            </div>
         </div>
-        <form>
-            <div class="form__group">
-                <span><i class="ri-map-pin-line"></i></span>
-                <div class="input__content">
-                    <div class="input__group">
-                        <input type="text" />
-                        <label>Helyszín</label>
-                    </div>
-                    <p>Hová szeretne utazni?</p>
+
+        <!-- Honnan utazik? -->
+        <div class="form__group">
+            <span><i class="ri-map-pin-line"></i></span>
+            <div class="input__content">
+                <div class="input__group">
+                    <select>
+                        <option value="origin1">Helyszín 1</option>
+                        <option value="origin2">Helyszín 2</option>
+                        <option value="origin3">Helyszín 3</option>
+                    </select>
+                    <label>Honnan utazik?</label>
                 </div>
             </div>
-            <div class="form__group">
-                <span><i class="ri-user-3-line"></i></span>
-                <div class="input__content">
-                    <div class="input__group">
-                        <input type="number" />
-                        <label>Utasok száma</label>
-                    </div>
-                    <p>Adja meg a vendégek számát</p>
+        </div>
+
+        <!-- Utasok száma -->
+        <div class="form__group">
+            <span><i class="ri-user-3-line"></i></span>
+            <div class="input__content">
+                <div class="input__group">
+                    <select>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                    <label>Utasok száma</label>
                 </div>
             </div>
-            <div class="form__group">
-                <span><i class="ri-calendar-line"></i></span>
-                <div class="input__content">
-                    <div class="input__group">
-                        <input type="text" />
-                        <label>Indulás</label>
-                    </div>
-                    <p>Adja meg az indulás dátumát</p>
+        </div>
+
+        <!-- Indulás -->
+        <div class="form__group">
+            <span><i class="ri-calendar-line"></i></span>
+            <div class="input__content">
+                <div class="input__group">
+                    <input type="date" />
+                    <label>Indulás</label>
                 </div>
             </div>
-            <div class="form__group">
-                <span><i class="ri-calendar-line"></i></span>
-                <div class="input__content">
-                    <div class="input__group">
-                        <input type="text" />
-                        <label>Visszaút</label>
-                    </div>
-                    <p>Adja meg a visszaút dátumát</p>
+        </div>
+
+        <!-- Visszaút -->
+        <div class="form__group">
+            <span><i class="ri-calendar-line"></i></span>
+            <div class="input__content">
+                <div class="input__group">
+                    <input type="date" />
+                    <label>Visszaút</label>
                 </div>
             </div>
-            <button class="btn"><i class="ri-search-line"></i></button>
-        </form>
-    </section>
+        </div>
+        <button class="btn"><i class="ri-search-line"></i></button>
+    </form>
+</section>
+
+
 
     <section class="section__container plan__container">
     <p class="subheader">UTAZÁSI SEGÍTSÉG</p>
