@@ -9,7 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
-    <title>Repülőjegyek olcsón</title>
+    <title>Légvonal Légitársaság</title>
 </head>
 <body>
     <?php include 'navbar.php'; ?> <!-- Dinamikus menüsor egyszer megírva, mindenhova behívva -->

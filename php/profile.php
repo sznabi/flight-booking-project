@@ -1,5 +1,6 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
+if (session_status() == PHP_SESSION_NONE) 
+{
     session_start();
 }
 ?>
@@ -19,7 +20,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <header>
         <h1>Profil oldal</h1>
         <script>
-            if (!<?php echo isset($_SESSION['fullname']) ? 'true' : 'false'; ?>) {
+            if (!<?php echo isset($_SESSION['email']) ? 'false' : 'true'; ?>) {
                 alert("Be kell jelentkeznie vagy regisztrálnia kell!");
                 window.location.href = 'index.php';
             }
