@@ -10,14 +10,14 @@
 <body>
 <?php include 'navbar.php'; ?> <!-- Dinamikus menüsor egyszer megírva, mindenhova behívva -->
 
-    <div class="flightdetails_container">
-        <h1>Foglalási oldal</h1>
+    <div id="booking" class="container">
+        <h1 style="margin-bottom: 20px;">Foglalási oldal</h1>
         <div id="flightDetails">
             <!-- Járat adatai ide kerülnek dinamikusan -->
         </div>
 
         <form id="passengerForm">
-            <h2>Adja meg az utasok adatait</h2>
+            <h1 style="margin-top: 25px; margin-bottom: 10px;">Adja meg az utasok adatait</h1>
             <div id="passengerInputs">
                 <!-- Dinamikusan generált utas űrlapok -->
             </div>
@@ -26,7 +26,6 @@
             </div>
             <button type="button" class="btn">Foglalás</button>
         </form>
-        
     </div>
     <footer>
         <div class="footer-content">
