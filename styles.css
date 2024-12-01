@@ -551,6 +551,7 @@ footer p {
 
 .flight-block .btn {
   margin: 20px 43%;
+  margin-bottom: 0px;
 }
 
 .flight-info {
