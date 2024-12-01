@@ -58,8 +58,9 @@ session_start();
 </header>
 <section class="section__container booking__container">
     <div class="booking__nav" id="classSelector">
-        <span data-type="turista" class="active">Turista osztály</span>
-        <span data-type="elso">Első osztály</span>
+        <span data-type="Turista">Turista osztály</span>
+        <span data-type="Bármely" class="active">Bármely osztály</span>
+        <span data-type="Első">Első osztály</span>
     </div>
     <form id="searchForm">
         <!-- Honnan utazik? -->

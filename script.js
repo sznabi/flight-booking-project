@@ -57,13 +57,14 @@ function currentSlide(n) {
 document.addEventListener("DOMContentLoaded", () => {
     const classSelector = document.getElementById("classSelector");
     const options = classSelector.querySelectorAll("span");
-    let selectedClass = "turista";
+    let selectedClass = "Bármely"; // Default to "Bármely osztály" to show all flights initially
 
+    // Handle class selection
     options.forEach(option => {
         option.addEventListener("click", () => {
             options.forEach(opt => opt.classList.remove("active"));
             option.classList.add("active");
-            selectedClass = option.dataset.type;
+            selectedClass = option.dataset.type; // Set selected class directly
         });
     });
 
@@ -74,9 +75,9 @@ document.addEventListener("DOMContentLoaded", () => {
             destination: "Helyszín 2", 
             departure: "2024-12-10", 
             return: "2024-12-15", 
-            availableSeats: 5,  // Number of available seats
+            availableSeats: 5, 
             price: "10000 HUF", 
-            class: "Turista"
+            class: "Turista" 
         },
         { 
             id: 2, 
@@ -84,16 +85,16 @@ document.addEventListener("DOMContentLoaded", () => {
             destination: "Helyszín 1", 
             departure: "2024-12-12", 
             return: "2024-12-18", 
-            availableSeats: 3,  // Number of available seats
+            availableSeats: 3, 
             price: "12000 HUF", 
-            class: "Első"
+            class: "Első" 
         },
         // Add more flights as needed
     ];
 
     function loadFlights(flightData) {
         const flightList = document.getElementById('flightList');
-        flightList.innerHTML = '';  // Clear any previous flights
+        flightList.innerHTML = ''; // Clear previous flights
 
         flightData.forEach(flight => {
             const flightBlock = document.createElement('div');
@@ -144,18 +145,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const origin = document.getElementById("originSelect").value;
         const destination = document.getElementById("destinationSelect").value;
-        const passengers = document.getElementById("passengersSelect").value;
+        const passengers = parseInt(document.getElementById("passengersSelect").value);
         const departureDate = document.getElementById("departureDate").value;
-        const returnDate = document.getElementById("returnDate").value;
 
         const filteredFlights = flights.filter(flight => {
-            return (
-                (origin === "any" || flight.origin === origin) &&
-                (destination === "any" || flight.destination === destination) &&
-                (passengers === "any" || flight.passengers <= flight.availableSeats) &&
-                (departureDate === "" || flight.departure === departureDate) &&
-                (returnDate === "" || flight.return === returnDate)
-            );
+            const isOriginValid = origin === "any" || flight.origin === origin;
+            const isDestinationValid = destination === "any" || flight.destination === destination;
+            const isSeatsValid = isNaN(passengers) || flight.availableSeats >= passengers;
+            const isDateValid = departureDate === "" || new Date(flight.departure) >= new Date(departureDate);
+            const isClassValid = 
+                selectedClass === "Bármely" || 
+                flight.class.toLowerCase() === selectedClass.toLowerCase();
+
+            return isOriginValid && isDestinationValid && isSeatsValid && isDateValid && isClassValid;
         });
 
         loadFlights(filteredFlights);
@@ -168,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function bookFlight(flightId, availableSeats) {
     const passengers = parseInt(document.getElementById("passengersSelect").value);
 
-    if (passengers <= availableSeats) {
+    if (isNaN(passengers) || passengers <= availableSeats) {
         alert(`Foglalás sikeres a következő járatra: ${flightId}`);
     } else {
         alert(`Nincs elég hely. Csak ${availableSeats} elérhető hely van.`);
