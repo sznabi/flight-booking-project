@@ -47,12 +47,28 @@ session_start();
     </section>
 </header>
 
+
     <section class="section__container booking__container">
     <div class="booking__nav" id="classSelector">
         <span data-type="turista" class="active">Turista osztály</span>
         <span data-type="elso">Első osztály</span>
     </div>
     <form>
+        <!-- Honnan utazik? -->
+        <div class="form__group">
+            <span><i class="ri-map-pin-line"></i></span>
+            <div class="input__content">
+                <div class="input__group">
+                    <select>
+                        <option value="origin1">Helyszín 1</option>
+                        <option value="origin2">Helyszín 2</option>
+                        <option value="origin3">Helyszín 3</option>
+                    </select>
+                    <label>Honnan utazik?</label>
+                </div>
+            </div>
+        </div>
+
         <!-- Hová szeretne utazni? -->
         <div class="form__group">
             <span><i class="ri-map-pin-line"></i></span>
@@ -68,20 +84,7 @@ session_start();
             </div>
         </div>
 
-        <!-- Honnan utazik? -->
-        <div class="form__group">
-            <span><i class="ri-map-pin-line"></i></span>
-            <div class="input__content">
-                <div class="input__group">
-                    <select>
-                        <option value="origin1">Helyszín 1</option>
-                        <option value="origin2">Helyszín 2</option>
-                        <option value="origin3">Helyszín 3</option>
-                    </select>
-                    <label>Honnan utazik?</label>
-                </div>
-            </div>
-        </div>
+        
 
         <!-- Utasok száma -->
         <div class="form__group">
