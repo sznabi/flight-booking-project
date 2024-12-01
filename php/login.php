@@ -64,65 +64,7 @@ include 'navbar.php';
         </div>
     </form>
     </div>
-    <style>
-        form {
-            max-width: 400px;
-            margin: 2rem auto;
-            padding: 1.5rem;
-            background-color: #f5f5f5;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
 
-        .form-group {
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 10px 15px;
-            font-size: 1rem;
-            outline: none;
-            border: 1px solid #d1d5db;
-            border-radius: 0.5rem;
-            background-color: #ffffff;
-            color: #001f3f;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .form-group input:focus {
-            border-color: #1e90ff;
-            box-shadow: 0 0 5px rgba(30, 144, 255, 0.5);
-        }
-
-        .form-group input::placeholder {
-            color: #64748b;
-            font-size: 0.9rem;
-        }
-
-        .form-btn {
-            text-align: center;
-        }
-
-        .form-btn input {
-            width: 50%;
-            padding: 10px 15px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .form-btn input:hover {
-            transform: scale(1.02);
-        }
-
-        .login-body h2 {
-            text-align: center;
-        }
-
-    </style>
     <footer>
         <div class="footer-content">
             <p>&copy; 2024 Légvonal <br>Az oldal egy egyetemi projekt keretében készült.</p>
