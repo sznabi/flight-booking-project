@@ -211,6 +211,7 @@ footer p {
 
 .booking__nav span:not(.active) {
   color: white;
+  background-color: #001f3f;
 }
 
 .booking__container form {
@@ -231,20 +232,20 @@ footer p {
   border-bottom: 1px solid white;
   outline: none;
   color: #001f3f;
+  border-radius: 4px;
 }
 
 .booking__container .form__group {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: .5rem;
+  margin-right: 25px;
 }
 
-.booking__container .form__group span {
-  padding: .5rem;
-  font-size: 1.5rem;
+.booking__container .form__group span i {
+  font-size: 1.7rem;
   color: white;
   background-color: #001f3f;
-  border-radius: 1rem;
 }
 
 .booking__container .input__content {
