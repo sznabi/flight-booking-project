@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 session_unset(); // Törli az összes session változót
 session_destroy(); // Lezárja a session-t
 

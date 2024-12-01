@@ -1,5 +1,5 @@
 <?php
-session_start(); // Session indítása
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ session_start(); // Session indítása
     <title>Repülőjegyek olcsón</title>
 </head>
 <body>
-    <?php include 'navbar.php'; ?> <!-- Betöltjük a közös navigációs sávot -->
+    <?php include 'navbar.php'; ?> <!-- Dinamikus menüsor egyszer megírva, mindenhova behívva -->
 
 <header>
     <section class="section__container" id="galeria">
