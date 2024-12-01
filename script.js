@@ -52,3 +52,28 @@ function currentSlide(n) {
     slideIndex = n - 1;
     showSlides();
 }
+
+document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const origin = document.querySelector('select[name="origin"]').value;
+    const destination = document.querySelector('select[name="destination"]').value;
+    const passengers = document.querySelector('select[name="passengers"]').value;
+    const departureDate = document.querySelector('input[name="departureDate"]').value;
+    const returnDate = document.querySelector('input[name="returnDate"]').value;
+    const flightClass = document.querySelector('span.active').getAttribute('data-type');
+
+    if (!origin || !destination || !passengers || !departureDate || !returnDate) {
+        alert("Tölts ki minden mezőt!");
+        return;
+    }
+
+    document.getElementById("ticketOrigin").textContent = origin;
+    document.getElementById("ticketDestination").textContent = destination;
+    document.getElementById("ticketDate").textContent = departureDate;
+    document.getElementById("ticketReturnDate").textContent = returnDate;
+    document.getElementById("ticketPassengers").textContent = passengers;
+    document.getElementById("ticketClass").textContent = flightClass === 'turista' ? 'Turista osztály' : 'Első osztály';
+
+    document.getElementById("ticketDetails").style.display = "block";
+});

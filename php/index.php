@@ -16,8 +16,8 @@ session_start();
 
     <header>
     <section class="section__container" id="galeria">
-        <h1>Légvonal</h1>
-        <h3>Velünk a csillagos ég sem lehet határ!</h3>
+        <h1 style="cursor: default;">Légvonal</h1>
+        <h3 style="cursor: default;">Velünk a csillagos ég sem lehet határ!</h3>
         <div class="slideshow-tarolo">
             <div class="mySlides fade">
                 <img src="../assets/header1.jpg" style="max-width:100%;">
@@ -69,7 +69,7 @@ session_start();
             <span><i class="ri-map-pin-line"></i></span>
             <div class="input__content">
                 <div class="input__group">
-                    <select>
+                    <select name="origin">
                         <option value="origin1">Helyszín 1</option>
                         <option value="origin2">Helyszín 2</option>
                         <option value="origin3">Helyszín 3</option>
@@ -84,7 +84,7 @@ session_start();
             <span><i class="ri-map-pin-line"></i></span>
             <div class="input__content">
                 <div class="input__group">
-                    <select>
+                    <select name="destination">
                         <option value="destination1">Helyszín 1</option>
                         <option value="destination2">Helyszín 2</option>
                         <option value="destination3">Helyszín 3</option>
@@ -94,14 +94,12 @@ session_start();
             </div>
         </div>
 
-        
-
         <!-- Utasok száma -->
         <div class="form__group">
             <span><i class="ri-user-3-line"></i></span>
             <div class="input__content">
                 <div class="input__group">
-                    <select>
+                    <select name="passengers">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -121,7 +119,7 @@ session_start();
             <span><i class="ri-calendar-line"></i></span>
             <div class="input__content">
                 <div class="input__group">
-                    <input type="date" />
+                    <input type="date" name="departureDate"/>
                     <label>Indulás</label>
                 </div>
             </div>
@@ -132,13 +130,25 @@ session_start();
             <span><i class="ri-calendar-line"></i></span>
             <div class="input__content">
                 <div class="input__group">
-                    <input type="date" />
+                    <input type="date" name="returnDate"/>
                     <label>Visszaút</label>
                 </div>
             </div>
         </div>
         <button class="btn"><i class="ri-search-line"></i></button>
     </form>
+</section>
+
+<section id="ticketDetails" class="section__container ticket__container" style="display:none;">
+    <h2>Járat információk</h2>
+    <div class="ticket">
+        <p><i class="ri-map-pin-line"></i><strong>Honnan utazik?</strong> <br><span id="ticketOrigin"></span></p>
+        <p><i class="ri-map-pin-line"></i><strong>Hová utazik?</strong> <br><span id="ticketDestination"></span></p>
+        <p><i class="ri-calendar-line"></i><strong>Indulás:</strong> <br><span id="ticketDate"></span></p>
+        <p><i class="ri-calendar-line"></i><strong>Visszaút:</strong> <br><span id="ticketReturnDate"></span></p>
+        <p><i class="ri-user-3-line"></i><strong>Utasok száma:</strong> <br><span id="ticketPassengers"></span></p>
+        <p><i class="ri-plane-fill"></i><strong>Osztály:</strong> <br><span id="ticketClass"></span></p>
+    </div>
 </section>
 
 <section class="section__container plan__container">
