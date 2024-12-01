@@ -13,7 +13,9 @@ include 'navbar.php';
 <body class="login-body">
     <div class="container">
     <?php
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
 
     // Ha már be van jelentkezve, irányítsuk át a kezdőoldalra
     if (isset($_SESSION["user_id"])) {
