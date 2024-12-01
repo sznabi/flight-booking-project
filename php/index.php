@@ -14,38 +14,49 @@ session_start();
 <body>
     <?php include 'navbar.php'; ?> <!-- Dinamikus menüsor egyszer megírva, mindenhova behívva -->
 
-<header>
+    <header>
     <section class="section__container" id="galeria">
-    <div class="slideshow-tarolo">
-        <div class="mySlides fade">
+        <h1>Légvonal</h1>
+        <h3>Velünk a csillagos ég sem lehet határ!</h3>
+        <div class="slideshow-tarolo">
+            <div class="mySlides fade">
                 <img src="../assets/header1.jpg" style="max-width:100%;">
+                <div class="slide-text">
+                <b>"Álomutak, elérhető áron!"</b><br>
+                Kedvező árú repülőjegyek a világ bármely pontjára. Foglald le most, és spórolj, miközben felejthetetlen élményekkel gazdagodsz.</div>
             </div>
 
-        <div class="mySlides fade">
+            <div class="mySlides fade">
                 <img src="../assets/header2.jpg" style="max-width:100%;">
-        </div>
+                <div class="slide-text"><b>"Indulj útnak a legjobb repülőterekről!"</b><br>
+                Fedezd fel a világot a legkorszerűbb repülőterekről induló járatokkal. Kényelmes indulás, gyors ügyintézés.</div>
+            </div>
 
-        <div class="mySlides fade">
+            <div class="mySlides fade">
                 <img src="../assets/header3.jpg" style="max-width:100%;">
-        </div>
-            
-        <div class="mySlides fade">
+                <div class="slide-text"><b>"Válaszd az igazi szabadságot!"</b><br>
+                Válaszd ki az úti célodat, és fedezd fel a világot úgy, ahogy mindig is szeretted volna.</div>
+            </div>
+
+            <div class="mySlides fade">
                 <img src="../assets/header4.jpg" style="max-width:100%;">
+                <div class="slide-text"><b>"Egyszerű foglalás, gondtalan utazás!"</b><br>
+                Találd meg a számodra legmegfelelőbb járatot, és foglald le jegyedet percek alatt. Utazz nyugodtan, mi gondoskodunk a részletekről!</div>
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
-        
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
-    </div>
-
-    <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-        <span class="dot" onclick="currentSlide(4)"></span>
-    </div>
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
     </section>
 </header>
+
 
     <section class="section__container booking__container">
     <div class="booking__nav" id="classSelector">
