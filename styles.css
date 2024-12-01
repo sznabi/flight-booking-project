@@ -98,14 +98,20 @@ header {
 
 header h1, h3 {
   line-height: 3rem;
+  font-weight: lighter;
+  color: white;
 }
 
 header h1 {
-  font-size: 3rem;
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 25px;
+  margin-top: 25px;
 }
 
 header h3 {
   font-size: 1.5rem;
+  margin-bottom: 25px;
 }
 
 header p {
@@ -542,6 +548,23 @@ footer p {
   background-color: #717171;
 }
 
+.slide-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  color: white;
+  padding: 10px 20px;
+  font-size: 15px;
+  width: 100%;
+  z-index: 10;
+  min-height: 75px;
+  text-align: left;
+}
+
+.slideshow-tarolo {
+  position: relative;
+}
 
 .fade {
   animation-name: fade;
