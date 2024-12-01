@@ -24,7 +24,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  background-color: #f9f9f9;
+  background-color: #001f3f;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -67,7 +67,7 @@ nav {
 .nav_logo a {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #f1f5f9;
+  color: white;
   cursor: pointer;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -87,7 +87,7 @@ nav {
 
 .link a {
   font-weight: 500;
-  color: #f1f5f9;
+  color: white;
   transition: .3s;
 }
 
@@ -118,6 +118,13 @@ header p {
   margin: 0 auto;
   padding: 50px;
   box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px;
+  background-color: #001f3f;
+  margin-top: 50px;
+  border-radius: 15px;
+}
+
+.container h2 {
+  color: white;
 }
 
 .form-group {
@@ -166,7 +173,7 @@ footer p {
 
  .booking__container {
   border-radius: 2rem;
-  border: 1px solid #f1f5f9;
+  border: 1px solid white;
   box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
   margin-top: 5rem;
   margin-bottom: 5rem;
@@ -177,7 +184,7 @@ footer p {
   margin: auto;
   display: flex;
   align-items: center;
-  background-color: #f1f5f9;
+  background-color: #001f3f;
   border-radius: 5px;
 }
 
@@ -192,12 +199,12 @@ footer p {
 }
 
 .booking__nav span.active {
-  background-color: #3a6d8c;
-  color: white;
+  background-color: white;
+  color: #001f3f;
 }
 
 .booking__nav span:not(.active) {
-  color: #64748b;
+  color: white;
 }
 
 .booking__container form {
@@ -215,9 +222,9 @@ footer p {
   padding: 10px 0;
   font-size: 1rem;
   border: none;
-  border-bottom: 1px solid #3a6d8c;
+  border-bottom: 1px solid white;
   outline: none;
-  color: #0f172a;
+  color: #001f3f;
 }
 
 .booking__container .form__group {
@@ -229,8 +236,8 @@ footer p {
 .booking__container .form__group span {
   padding: .5rem;
   font-size: 1.5rem;
-  color: #0f172a;
-  background-color: #f1f5f9;
+  color: white;
+  background-color: #001f3f;
   border-radius: 1rem;
 }
 
@@ -252,7 +259,7 @@ footer p {
   transform: translateY(-50%);
   font-size: 0.9rem;
   font-weight: 500;
-  color: #0f172a;
+  color: white;
   pointer-events: none;
   transition: 0.3s;
   top: -1.4rem;
@@ -274,7 +281,7 @@ footer p {
   margin-bottom: 1rem;
   text-align: center;
   font-weight: 600;
-  color: #0f172a;
+  color: #577c8e;
   letter-spacing: 5px;
   margin-top: 5rem;
 
@@ -285,11 +292,12 @@ footer p {
   font-size: 3rem;
   line-height: 4rem;
   margin-bottom: 1rem;
+  color: white;
 }
 
 .plan__container .description {
   text-align: center;
-  color: #64748b;
+  color: white;
 }
 
 .plan__grid {
@@ -305,7 +313,7 @@ footer p {
   margin-bottom: 0.5rem;
   font-weight: 600;
   color: white;
-  background-color: #3d5cb8;
+  background-color: #577c8e;
   border-radius: 2rem;
 }
 
@@ -324,12 +332,12 @@ footer p {
 .plan__content h4 {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #0f172a;
+  color: white;
   margin-bottom: 0.5rem;
 }
 
 .plan__content p {
-  color: #64748b;
+  color: #577c8e;
   margin-bottom: 2rem;
 }
 
@@ -468,5 +476,91 @@ footer p {
   .footer__bar {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+.slideshow-tarolo {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+}
+
+.mySlides {
+  display: none;
+}
+
+.mySlides img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: #dbeefb;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  user-select: none;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.next {
+  right: 10px;
+}
+
+.prev {
+  left: 10px;
+}
+
+.prev:hover, .next:hover {
+  background-color: #dbeefb;
+  color: #1b262c;
+  border-radius: 30px;
+  opacity: 0.8;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #577c8e;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  margin-top: 25px;
+}
+
+.aktiv, .dot:hover {
+  background-color: #1b262c;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: .5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .nasakepek {
+    flex-direction: column;
+  }
+  .nasakep img {
+    width: 375px;
   }
 }

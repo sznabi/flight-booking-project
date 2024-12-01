@@ -12,7 +12,7 @@ include 'navbar.php';
     <title>Kapcsolat</title>
 </head>
 <body>
-    <div id="contact">
+    <div id="contact" class="container">
         <h2>Kapcsolat</h2>
         <form action="submit_contact.php" method="post">
             <p><label>Név:</label> <input name="contact_name" type="text" /></p>
@@ -50,6 +50,7 @@ include 'navbar.php';
         margin: 0 auto;
         padding: 50px;
         box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px;
+        margin-top: 50px;
     }
 
     #contact input[type="text"],
@@ -85,6 +86,7 @@ include 'navbar.php';
 
     #contact label {
     font-weight: bold;
+    color: #001f3f;
     display: block;
     margin-top: 15px;
     font-size: 14px;

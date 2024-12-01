@@ -14,16 +14,38 @@ session_start(); // Session indítása
 <body>
     <?php include 'navbar.php'; ?> <!-- Betöltjük a közös navigációs sávot -->
 
-    <header>
-        <h1>Éld át a repülés szabadságát!</h1>
-        <img src="../assets/header.jpg" alt="Főoldal képe" style="width: 1200px; display: block; margin: 0 auto;">
-        <p>
-            Minden repülésünk személyre szabott,
-            <br>hogy életed egyik
-            legemlékezetesebb élményét nyújtsa.
-        </p>
-        <h3>Foglalj most, és repülj velünk az égbolt felé!</h3>
-    </header>
+<header>
+    <section class="section__container" id="galeria">
+    <div class="slideshow-tarolo">
+        <div class="mySlides fade">
+                <img src="../assets/header1.jpg" style="max-width:100%;">
+            </div>
+
+        <div class="mySlides fade">
+                <img src="../assets/header2.jpg" style="max-width:100%;">
+        </div>
+
+        <div class="mySlides fade">
+                <img src="../assets/header3.jpg" style="max-width:100%;">
+        </div>
+            
+        <div class="mySlides fade">
+                <img src="../assets/header4.jpg" style="max-width:100%;">
+        </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    </div>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+    </div>
+    </section>
+</header>
 
     <section class="section__container booking__container">
     <div class="booking__nav" id="classSelector">
@@ -106,9 +128,7 @@ session_start(); // Session indítása
     </form>
 </section>
 
-
-
-    <section class="section__container plan__container">
+<section class="section__container plan__container">
     <p class="subheader">UTAZÁSI SEGÍTSÉG</p>
     <h2 class="section__header">Készülj fel az utazásodra magabiztosan</h2>
     <p class="description">
@@ -143,7 +163,7 @@ session_start(); // Session indítása
                 <img src="../assets/terv3.jpg" alt="Biztosítás kötése" />
             </div>
         </div>
-    </section>
+</section>
 
     <footer>
         <div class="footer-content">
@@ -153,6 +173,8 @@ session_start(); // Session indítása
                 <li class="link"><a href="contact.php">Kapcsolat</a></li>
                 <li class="link"><a href="profile.php">Profil</a></li>
             </ul>
+            <p>Kreiniker Ákos, Nagy Szabolcs Benjámin, Tabajdi Bálint</p>
+
         </div>
     </footer>
 <script src="../script.js"></script>
