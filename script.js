@@ -53,27 +53,100 @@ function currentSlide(n) {
     showSlides();
 }
 
-document.querySelector('form').addEventListener('submit', function(event) {
-    event.preventDefault();
+// FOGLALÁS SCRIPT
+document.addEventListener("DOMContentLoaded", () => {
+    const classSelector = document.getElementById("classSelector");
+    const options = classSelector.querySelectorAll("span");
+    let selectedClass = "turista";
 
-    const origin = document.querySelector('select[name="origin"]').value;
-    const destination = document.querySelector('select[name="destination"]').value;
-    const passengers = document.querySelector('select[name="passengers"]').value;
-    const departureDate = document.querySelector('input[name="departureDate"]').value;
-    const returnDate = document.querySelector('input[name="returnDate"]').value;
-    const flightClass = document.querySelector('span.active').getAttribute('data-type');
+    options.forEach(option => {
+        option.addEventListener("click", () => {
+            options.forEach(opt => opt.classList.remove("active"));
+            option.classList.add("active");
+            selectedClass = option.dataset.type;
+        });
+    });
 
-    if (!origin || !destination || !passengers || !departureDate || !returnDate) {
-        alert("Tölts ki minden mezőt!");
-        return;
+    const flights = [
+        { id: 1, origin: "Helyszín 1", destination: "Helyszín 2", departure: "2024-12-10", return: "2024-12-15", passengers: 2, price: "10000 HUF", class: "Turista" },
+        { id: 2, origin: "Helyszín 3", destination: "Helyszín 1", departure: "2024-12-12", return: "2024-12-18", passengers: 1, price: "12000 HUF", class: "Első" },
+        // ide johetnek a jaratok
+    ];
+
+    function loadFlights(flightData) {
+        const flightList = document.getElementById('flightList');
+        flightList.innerHTML = '';
+
+        flightData.forEach(flight => {
+            const flightBlock = document.createElement('div');
+            flightBlock.classList.add('flight-block');
+
+            flightBlock.innerHTML = `
+                <div class="flight-info">
+                    <div class="flight-item">
+                        <span><i class="ri-map-pin-line"></i></span>
+                        <p><strong>Innen:</strong> ${flight.origin}</p>
+                    </div>
+                    <div class="flight-item">
+                        <span><i class="ri-map-pin-line"></i></span>
+                        <p><strong>Ide:</strong> ${flight.destination}</p>
+                    </div>
+                    <div class="flight-item">
+                        <span><i class="ri-calendar-line"></i></span>
+                        <p><strong>Indulás:</strong> ${flight.departure}</p>
+                    </div>
+                    <div class="flight-item">
+                        <span><i class="ri-calendar-line"></i></span>
+                        <p><strong>Visszaút:</strong> ${flight.return}</p>
+                    </div>
+                    <div class="flight-item">
+                        <span><i class="ri-user-3-line"></i></span>
+                        <p><strong>Utasok:</strong> ${flight.passengers}</p>
+                    </div>
+                    <div class="flight-item">
+                        <span><i class="ri-flag-line"></i></span>
+                        <p><strong>Osztály:</strong> ${flight.class}</p>
+                    </div>
+                    <div class="flight-item">
+                        <span><i class="ri-price-tag-3-line"></i></span>
+                        <p><strong>Ár:</strong> ${flight.price}</p>
+                    </div>
+                </div>
+                <button class="btn" onclick="bookFlight(${flight.id})">Foglalás</button>
+            `;
+
+            flightList.appendChild(flightBlock);
+        });
+
+        document.getElementById('availableFlights').style.display = 'block';
     }
 
-    document.getElementById("ticketOrigin").textContent = origin;
-    document.getElementById("ticketDestination").textContent = destination;
-    document.getElementById("ticketDate").textContent = departureDate;
-    document.getElementById("ticketReturnDate").textContent = returnDate;
-    document.getElementById("ticketPassengers").textContent = passengers;
-    document.getElementById("ticketClass").textContent = flightClass === 'turista' ? 'Turista osztály' : 'Első osztály';
+    function filterFlights(event) {
+        event.preventDefault();
 
-    document.getElementById("ticketDetails").style.display = "block";
+        const origin = document.getElementById("originSelect").value;
+        const destination = document.getElementById("destinationSelect").value;
+        const passengers = document.getElementById("passengersSelect").value;
+        const departureDate = document.getElementById("departureDate").value;
+        const returnDate = document.getElementById("returnDate").value;
+
+        const filteredFlights = flights.filter(flight => {
+            return (
+                (origin === "any" || flight.origin === origin) &&
+                (destination === "any" || flight.destination === destination) &&
+                (passengers === "any" || flight.passengers == passengers) &&
+                (departureDate === "" || flight.departure === departureDate) &&
+                (returnDate === "" || flight.return === returnDate)
+            );
+        });
+
+        loadFlights(filteredFlights);
+    }
+
+    document.getElementById('searchForm').addEventListener('submit', filterFlights);
+
 });
+
+function bookFlight(flightId) {
+    alert(`Foglalás sikeres a következő járatra: ${flightId}`);
+}

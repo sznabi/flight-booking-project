@@ -505,7 +505,7 @@ footer p {
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
   padding: 10px 20px;
   font-size: 15px;
@@ -533,48 +533,70 @@ footer p {
   }
 }
 
-/* Jegy szekcio CSS */
-#ticketDetails {
-  text-align: left;
-  color: white;
+/* Jegy szekció CSS */
+.flight-block {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
-#ticketDetails h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+.flight-block .btn {
+  margin: 20px 43%;
 }
 
-.ticket p {
-  font-size: 1.1rem;
-  margin: 8px 0;
+.flight-info {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: auto;
 }
 
-.ticket span {
-  font-size: 1.3rem;
-  margin-right: 10px;
-}
-
-.ticket {
+.flight-item {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-}
-
-.ticket p {
-  display: flex;
   align-items: center;
+  gap: 6px;
+  text-align: center;
 }
 
-.ticket p strong{
-  font-weight: 500;
+.flight-item span {
+  font-weight: bold;
 }
 
-.ticket p i {
-  font-size: 1.5rem;
+.flight-info p {
+  margin: 0;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+}
+
+#availableFlights h2 {
   color: white;
-  margin-right: 10px;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 300;
 }
 
+#availableFlights {
+  margin-bottom: 5rem;
+}
+
+#flightList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
   /* MEDIA QUERY */
 

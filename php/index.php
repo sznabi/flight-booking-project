@@ -9,7 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
-    <title>Légvonal Légitársaság</title>
+    <title>Légvonal</title>
 </head>
 <body>
     <?php include 'navbar.php'; ?> <!-- Dinamikus menüsor egyszer megírva, mindenhova behívva -->
@@ -56,23 +56,22 @@ session_start();
         </div>
     </section>
 </header>
-
-
-    <section class="section__container booking__container">
+<section class="section__container booking__container">
     <div class="booking__nav" id="classSelector">
         <span data-type="turista" class="active">Turista osztály</span>
         <span data-type="elso">Első osztály</span>
     </div>
-    <form>
+    <form id="searchForm">
         <!-- Honnan utazik? -->
         <div class="form__group">
             <span><i class="ri-map-pin-line"></i></span>
             <div class="input__content">
                 <div class="input__group">
-                    <select name="origin">
-                        <option value="origin1">Helyszín 1</option>
-                        <option value="origin2">Helyszín 2</option>
-                        <option value="origin3">Helyszín 3</option>
+                    <select name="origin" id="originSelect">
+                        <option value="any">Bármely</option>
+                        <option value="Helyszín 1">Helyszín 1</option>
+                        <option value="Helyszín 2">Helyszín 2</option>
+                        <option value="Helyszín 3">Helyszín 3</option>
                     </select>
                     <label>Honnan utazik?</label>
                 </div>
@@ -84,10 +83,11 @@ session_start();
             <span><i class="ri-map-pin-line"></i></span>
             <div class="input__content">
                 <div class="input__group">
-                    <select name="destination">
-                        <option value="destination1">Helyszín 1</option>
-                        <option value="destination2">Helyszín 2</option>
-                        <option value="destination3">Helyszín 3</option>
+                    <select name="destination" id="destinationSelect">
+                        <option value="any">Bármely</option>
+                        <option value="Helyszín 1">Helyszín 1</option>
+                        <option value="Helyszín 2">Helyszín 2</option>
+                        <option value="Helyszín 3">Helyszín 3</option>
                     </select>
                     <label>Hová utazik?</label>
                 </div>
@@ -99,7 +99,8 @@ session_start();
             <span><i class="ri-user-3-line"></i></span>
             <div class="input__content">
                 <div class="input__group">
-                    <select name="passengers">
+                    <select name="passengers" id="passengersSelect">
+                        <option value="any">Bármely</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -119,7 +120,7 @@ session_start();
             <span><i class="ri-calendar-line"></i></span>
             <div class="input__content">
                 <div class="input__group">
-                    <input type="date" name="departureDate"/>
+                    <input type="date" name="departureDate" id="departureDate" />
                     <label>Indulás</label>
                 </div>
             </div>
@@ -130,24 +131,20 @@ session_start();
             <span><i class="ri-calendar-line"></i></span>
             <div class="input__content">
                 <div class="input__group">
-                    <input type="date" name="returnDate"/>
+                    <input type="date" name="returnDate" id="returnDate" />
                     <label>Visszaút</label>
                 </div>
             </div>
         </div>
-        <button class="btn"><i class="ri-search-line"></i></button>
+
+        <button type="submit" class="btn"><i class="ri-search-line"></i></button>
     </form>
 </section>
 
-<section id="ticketDetails" class="section__container ticket__container" style="display:none;">
-    <h2>Járat információk</h2>
-    <div class="ticket">
-        <p><i class="ri-map-pin-line"></i><strong>Honnan utazik?</strong> <br><span id="ticketOrigin"></span></p>
-        <p><i class="ri-map-pin-line"></i><strong>Hová utazik?</strong> <br><span id="ticketDestination"></span></p>
-        <p><i class="ri-calendar-line"></i><strong>Indulás:</strong> <br><span id="ticketDate"></span></p>
-        <p><i class="ri-calendar-line"></i><strong>Visszaút:</strong> <br><span id="ticketReturnDate"></span></p>
-        <p><i class="ri-user-3-line"></i><strong>Utasok száma:</strong> <br><span id="ticketPassengers"></span></p>
-        <p><i class="ri-plane-fill"></i><strong>Osztály:</strong> <br><span id="ticketClass"></span></p>
+<section id="availableFlights" class="section__container" style="display:none;">
+    <h2>Elérhető Járatok</h2>
+    <div id="flightList">
+        <!-- ide tolti a jaratokat -->
     </div>
 </section>
 
