@@ -1,34 +1,33 @@
-<?php
-if (session_status() == PHP_SESSION_NONE) 
-{
-    session_start();
-}
-?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
-    <title>Profil</title>
+    <title>Foglalás</title>
 </head>
 <body>
-    <?php include 'navbar.php'; ?> <!-- Betöltjük a közös navigációs sávot -->
+<?php include 'navbar.php'; ?> <!-- Dinamikus menüsor egyszer megírva, mindenhova behívva -->
 
-    <header>
-        <h1>Profil oldal</h1>
-        <script>
-            if (!<?php echo isset($_SESSION['email']) ? 'false' : 'true'; ?>) {
-                alert("Be kell jelentkeznie vagy regisztrálnia kell!");
-                window.location.href = 'index.php';
-            }
-        </script>
-        <p>Üdvözlünk, <?php echo $_SESSION['fullname']; ?>!</p>
-        <!-- Profil információk itt -->
-    </header>
+    <div class="flightdetails_container">
+        <h1>Foglalási oldal</h1>
+        <div id="flightDetails">
+            <!-- Járat adatai ide kerülnek dinamikusan -->
+        </div>
 
+        <form id="passengerForm">
+            <h2>Adja meg az utasok adatait</h2>
+            <div id="passengerInputs">
+                <!-- Dinamikusan generált utas űrlapok -->
+            </div>
+            <div id="totalCost">
+                <!-- Teljes költség -->
+            </div>
+            <button type="button" class="btn">Foglalás</button>
+        </form>
+        
+    </div>
     <footer>
         <div class="footer-content">
             <p>&copy; 2024 Légvonal <br>Az oldal egy egyetemi projekt keretében készült.</p>
@@ -40,5 +39,6 @@ if (session_status() == PHP_SESSION_NONE)
             <p>Kreiniker Ákos, Nagy Szabolcs Benjámin, Tabajdi Bálint</p>
         </div>
     </footer>
+    <script src="../booking.js"></script>
 </body>
 </html>

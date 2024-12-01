@@ -599,6 +599,58 @@ footer p {
   gap: 20px;
 }
 
+  /* FOGLALASI OLDAL SZEKCIO */
+
+#flightDetails, #passengerInputs, #totalCost {
+  background-color: #001f3f;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+#flightDetails h2, #totalCost h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #3a6d8c;
+}
+
+#flightDetails button {
+  background-color: white;
+  color: #3a6d8c;
+  border: 2px solid #3a6d8c;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#flightDetails button:hover {
+  background-color: #3a6d8c;
+  color: white;
+}
+
+input[type="text"], input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dbeefb;
+  border-radius: 5px;
+  margin-top: 10px;
+  background-color: #f9f9f9;
+  color: #001f3f;
+}
+
+.flightdetails_container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #001f3f;
+  color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
   /* MEDIA QUERY */
 
 @media (width < 900px) {

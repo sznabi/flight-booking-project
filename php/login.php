@@ -75,6 +75,7 @@ include 'navbar.php';
                 <li class="link"><a href="contact.php">Kapcsolat</a></li>
                 <li class="link"><a href="profile.php">Profil</a></li>
             </ul>
+            <p>Kreiniker Ákos, Nagy Szabolcs Benjámin, Tabajdi Bálint</p>
         </div>
     </footer>
 </body>

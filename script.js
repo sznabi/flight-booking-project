@@ -166,12 +166,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('searchForm').addEventListener('submit', filterFlights);
 });
 
-// Booking function
 function bookFlight(flightId, availableSeats) {
     const passengers = parseInt(document.getElementById("passengersSelect").value);
 
     if (isNaN(passengers) || passengers <= availableSeats) {
-        alert(`Foglalás sikeres a következő járatra: ${flightId}`);
+        const bookingUrl = `booking.php?flightId=${flightId}&passengers=${passengers}`;
+        window.location.href = bookingUrl;
     } else {
         alert(`Nincs elég hely. Csak ${availableSeats} elérhető hely van.`);
     }

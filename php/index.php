@@ -195,7 +195,6 @@ session_start();
                 <li class="link"><a href="profile.php">Profil</a></li>
             </ul>
             <p>Kreiniker Ákos, Nagy Szabolcs Benjámin, Tabajdi Bálint</p>
-
         </div>
     </footer>
 <script src="../script.js"></script>
