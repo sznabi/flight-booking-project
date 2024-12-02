@@ -26,7 +26,7 @@ include 'navbar.php';
     }
 
     if (isset($_POST["submit"])) {
-        $fullName = $_POST["fullname"];
+        $fullname = $_POST["fullname"];
         $email = $_POST["email"];
         $password = $_POST["password"];
         $passwordRepeat = $_POST["password_repeat"];
@@ -35,7 +35,7 @@ include 'navbar.php';
 
         $errors = array();
 
-        if(empty($fullName) OR empty($email) OR empty($password) OR empty($passwordRepeat)) {
+        if(empty($fullname) OR empty($email) OR empty($password) OR empty($passwordRepeat)) {
             array_push($errors, "Minden mezőt ki kell tölteni!");
         }
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -65,7 +65,7 @@ include 'navbar.php';
             $stmt = mysqli_stmt_init($conn);
             $prepareStmt = mysqli_stmt_prepare($stmt, $sql);
             if ($prepareStmt) {
-                mysqli_stmt_bind_param($stmt, "sss", $fullName, $email, $passwordHash);
+                mysqli_stmt_bind_param($stmt, "sss", $fullname, $email, $passwordHash);
                 mysqli_stmt_execute($stmt);
                 echo "<div class='alert alert-success'>Sikeres regisztráció!</div>";
                 

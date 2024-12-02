@@ -42,7 +42,7 @@ include 'navbar.php';
                 $row = mysqli_fetch_assoc($result);
                 if (password_verify($password, $row['password'])) {
                     $_SESSION["user_id"] = $row["id"];  // Ha a jelszó helyes, session-ben tároljuk a felhasználót
-                    $_SESSION["fullname"];
+                    $_SESSION["fullname"] = $row["fullname"];
                     header("Location: index.php");  // A sikeres bejelentkezés után irányítás a kezdőoldalra
                     exit();
                 } else {
