@@ -82,10 +82,18 @@ body {
   padding: 1rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 1rem;
   background-color: #001f3f;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.nav_links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
 .nav_logo a {
@@ -97,17 +105,16 @@ body {
   transition: color 0.3s ease;
 }
 
-.nav_logo a:hover, .link a:hover {
+.nav_links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav_links a:hover {
   color: #3a6d8c;
 }
 
-.nav_links {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-}
 
 header {
   margin-top: 75px;

@@ -63,37 +63,67 @@ session_start();
         <span data-type="Első">Első osztály</span>
     </div>
     <form id="searchForm">
-        <!-- Honnan utazik? -->
-        <div class="form__group">
-            <span><i class="ri-map-pin-line"></i></span>
-            <div class="input__content">
-                <div class="input__group">
-                    <select name="origin" id="originSelect">
-                        <option value="any">Bármely</option>
-                        <option value="Helyszín 1">Helyszín 1</option>
-                        <option value="Helyszín 2">Helyszín 2</option>
-                        <option value="Helyszín 3">Helyszín 3</option>
-                    </select>
-                    <label>Honnan utazik?</label>
-                </div>
-            </div>
+    <div class="form__group">
+    <span><i class="ri-map-pin-line"></i></span>
+    <div class="input__content">
+        <div class="input__group">
+            <select name="origin" id="originSelect">
+                <option value="any">Bármely</option>
+                <option value="Róma">Róma</option>
+                <option value="Berlin">Berlin</option>
+                <option value="Madrid">Madrid</option>
+                <option value="Barcelona">Barcelona</option>
+                <option value="Amszterdam">Amszterdam</option>
+                <option value="Bécs">Bécs</option>
+                <option value="Zürich">Zürich</option>
+                <option value="Koppenhága">Koppenhága</option>
+                <option value="Brüsszel">Brüsszel</option>
+                <option value="Lisszabon">Lisszabon</option>
+                <option value="Dublin">Dublin</option>
+                <option value="Prága">Prága</option>
+                <option value="Budapest">Budapest</option>
+                <option value="Stockholm">Stockholm</option>
+                <option value="Helsinki">Helsinki</option>
+                <option value="Oslo">Oslo</option>
+                <option value="Varsó">Varsó</option>
+                <option value="Athén">Athén</option>
+            </select>
+            <label>Honnan utazik?</label>
         </div>
+    </div>
+</div>
 
-        <!-- Hová szeretne utazni? -->
-        <div class="form__group">
-            <span><i class="ri-map-pin-line"></i></span>
-            <div class="input__content">
-                <div class="input__group">
-                    <select name="destination" id="destinationSelect">
-                        <option value="any">Bármely</option>
-                        <option value="Helyszín 1">Helyszín 1</option>
-                        <option value="Helyszín 2">Helyszín 2</option>
-                        <option value="Helyszín 3">Helyszín 3</option>
-                    </select>
-                    <label>Hová utazik?</label>
-                </div>
-            </div>
+<!-- Hová szeretne utazni? -->
+<div class="form__group">
+    <span><i class="ri-map-pin-line"></i></span>
+    <div class="input__content">
+        <div class="input__group">
+            <select name="destination" id="destinationSelect">
+                <option value="any">Bármely</option>
+                <option value="Róma">Róma</option>
+                <option value="Berlin">Berlin</option>
+                <option value="Madrid">Madrid</option>
+                <option value="Barcelona">Barcelona</option>
+                <option value="Amszterdam">Amszterdam</option>
+                <option value="Bécs">Bécs</option>
+                <option value="Zürich">Zürich</option>
+                <option value="Koppenhága">Koppenhága</option>
+                <option value="Brüsszel">Brüsszel</option>
+                <option value="Lisszabon">Lisszabon</option>
+                <option value="Dublin">Dublin</option>
+                <option value="Prága">Prága</option>
+                <option value="Budapest">Budapest</option>
+                <option value="Stockholm">Stockholm</option>
+                <option value="Helsinki">Helsinki</option>
+                <option value="Oslo">Oslo</option>
+                <option value="Varsó">Varsó</option>
+                <option value="Athén">Athén</option>
+            </select>
+            <label>Hová utazik?</label>
         </div>
+    </div>
+</div>
+
 
         <!-- Utasok száma -->
         <div class="form__group">

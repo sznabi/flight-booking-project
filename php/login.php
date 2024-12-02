@@ -1,5 +1,7 @@
 <?php
-// Betöltjük a navbar.php fájlt, amely a navigációs sávot tartalmazza
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 include 'navbar.php';
 ?>
 <!DOCTYPE html>
@@ -13,9 +15,6 @@ include 'navbar.php';
 <body class="login-body">
     <div class="container">
     <?php
-    if (session_status() == PHP_SESSION_NONE) {
-        session_start();
-    }
 
     // Ha már be van jelentkezve, irányítsuk át a kezdőoldalra
     if (isset($_SESSION["user_id"])) {
