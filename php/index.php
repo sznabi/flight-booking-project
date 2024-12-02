@@ -144,6 +144,12 @@ session_start();
 
 <section id="availableFlights" class="section__container" style="display:none;">
     <h2>Elérhető Járatok</h2>
+
+     <div id="sortControls">
+        <button id="sortAsc" class="btn">Indulás<i class="ri-arrow-up-s-line"></i></button>
+        <button id="sortDesc" class="btn">Indulás<i class="ri-arrow-down-s-line"></i></button>
+    </div>
+
     <div id="flightList">
         <!-- ide tolti a jaratokat -->
     </div>

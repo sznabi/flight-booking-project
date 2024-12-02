@@ -24,7 +24,7 @@
             <div id="totalCost">
                 <!-- Teljes költség -->
             </div>
-            <button type="button" class="btn">Foglalás</button>
+            <button type="button" class="btn" id="confirmBooking">Foglalás</button>
         </form>
     </div>
     <footer>

@@ -663,6 +663,22 @@ transform: scale(0.95);
   gap: 20px;
 }
 
+#sortControls {
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#sortControls .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
   /* FOGLALASI OLDAL SZEKCIO */
 
 #flightDetails {

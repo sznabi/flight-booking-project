@@ -3,11 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const flightId = parseInt(urlParams.get("flightId"));
     const passengers = parseInt(urlParams.get("passengers"));
 
-    if (isNaN(flightId) || isNaN(passengers)) {
-        alert("Hiba: Nem található érvényes járat ID vagy utas szám.");
-        return;
-    }
-
     const flights = [
         { 
             id: 1, 
@@ -15,7 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
             destination: "Helyszín 2", 
             departure: "2024-12-10", 
             return: "2024-12-15", 
-            price: 10000, 
+            availableSeats: 15, 
+            price: "10000", 
             class: "Turista" 
         },
         { 
@@ -24,17 +20,33 @@ document.addEventListener("DOMContentLoaded", () => {
             destination: "Helyszín 1", 
             departure: "2024-12-12", 
             return: "2024-12-18", 
-            price: 12000, 
+            availableSeats: 3, 
+            price: "12000", 
             class: "Első" 
+        },
+        { 
+            id: 3, 
+            origin: "Helyszín 2", 
+            destination: "Helyszín 1", 
+            departure: "2024-12-18", 
+            return: "2024-12-30", 
+            availableSeats: 12, 
+            price: "25000", 
+            class: "Turista" 
+        },
+        { 
+            id: 4, 
+            origin: "Helyszín 1", 
+            destination: "Helyszín 3", 
+            departure: "2024-12-08", 
+            return: "2024-12-11", 
+            availableSeats: 21, 
+            price: "18000", 
+            class: "Turista" 
         }
     ];
 
     const selectedFlight = flights.find(flight => flight.id === flightId);
-
-    if (!selectedFlight) {
-        alert("Hiba: Nem található a kiválasztott járat.");
-        return;
-    }
 
     const flightDetailsDiv = document.getElementById("flightDetails");
     flightDetailsDiv.innerHTML = `
@@ -68,21 +80,39 @@ document.addEventListener("DOMContentLoaded", () => {
     totalCostDiv.innerHTML = `<h3>Teljes költség: ${totalCost} HUF</h3>`;
 
     const confirmBookingButton = document.getElementById("confirmBooking");
-    confirmBookingButton.addEventListener("click", () => {
+    confirmBookingButton.addEventListener("click", (event) => {
+        event.preventDefault();
+
         const formData = new FormData(document.getElementById("passengerForm"));
         const passengerData = [];
+        let isValid = true;
 
         for (let i = 1; i <= passengers; i++) {
-            passengerData.push({
-                firstName: formData.get(`firstName${i}`),
-                lastName: formData.get(`lastName${i}`),
-                dob: formData.get(`dob${i}`)
-            });
+            const firstName = formData.get(`firstName${i}`);
+            const lastName = formData.get(`lastName${i}`);
+            const dob = formData.get(`dob${i}`);
+
+            if (!firstName || !lastName || !dob) {
+                alert(`Utas ${i} adatainál hiányzik egy vagy több mező!`);
+                isValid = false;
+                break;
+            }
+
+            const birthDate = new Date(dob);
+            const today = new Date();
+            if (birthDate > today) {
+                alert(`Utas ${i} születési dátuma nem lehet a jövőben!`);
+                isValid = false;
+                break;
+            }
+
+            passengerData.push({ firstName, lastName, dob });
         }
 
-        console.log("Foglalás adatai:", passengerData);
-
-        alert("Foglalás sikeres!");
-        window.location.href = "index.php";
+        if (isValid) {
+            console.log("Foglalás adatai:", passengerData);
+            alert("Foglalás sikeres! Megtekintheted a járat adatait a profilodon.");
+            window.location.href = "profile.php";
+        }
     });
 });
