@@ -5,6 +5,8 @@
   box-sizing: border-box;
   }
 
+  /* KOZOS CSS */
+  
 .btn {
   padding: .75rem 2rem;
   outline: none;
@@ -52,7 +54,29 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-nav {
+.container {
+  max-width: 800px !important;
+  margin: 0 auto;
+  padding: 50px;
+  box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px;
+  background-color: #001f3f;
+  margin-top: 50px;
+  border-radius: 15px;
+}
+
+.container h1,h2 {
+  color: white;
+}
+
+.link a {
+  font-weight: 500;
+  color: white;
+  transition: .3s;
+}
+
+ /* NAVBAR, HEADER CSS */
+
+ nav {
   max-width: 100%;
   margin: auto;
   padding: 1rem;
@@ -85,12 +109,6 @@ nav {
   gap: 2rem;
 }
 
-.link a {
-  font-weight: 500;
-  color: white;
-  transition: .3s;
-}
-
 header {
   margin-top: 75px;
   text-align: center;
@@ -119,23 +137,6 @@ header p {
   margin-bottom: 25px;
 }
 
-.container {
-  max-width: 800px !important;
-  margin: 0 auto;
-  padding: 50px;
-  box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px;
-  background-color: #001f3f;
-  margin-top: 50px;
-  border-radius: 15px;
-}
-
-.container h1,h2 {
-  color: white;
-}
-
-.form-group {
-  margin-bottom: 30px;
-}
 
  /* FOOTER CSS */
 
@@ -399,6 +400,7 @@ footer p {
 .form-group {
   margin-bottom: 1.5rem;
   position: relative;
+  margin-bottom: 30px;
 }
 
 .form-group input {
