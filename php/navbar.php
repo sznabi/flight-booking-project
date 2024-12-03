@@ -4,6 +4,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 ?>
 <script>
+
 document.addEventListener("DOMContentLoaded", function () {
     const hamburger = document.querySelector(".hamburger");
     const navLinks = document.querySelector(".nav_links");
@@ -26,7 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
             <li class="link"><a href="index.php">Kezdőoldal</a></li>
             <li class="link"><a href="contact.php">Kapcsolat</a></li>
             <li class="link"><a href="profile.php">Profil</a></li>
-            <div class="btns">
+        </ul>
+        <div class="btns">
             <?php if (isset($_SESSION['user_id'])): ?>
                 <a href="logout.php"><button class="btn">Kijelentkezés</button></a>
             <?php else: ?>
@@ -34,7 +36,5 @@ document.addEventListener("DOMContentLoaded", function () {
                 <a href="registration.php"><button class="btn" id="reg">Regisztráció</button></a>
             <?php endif; ?>
         </div>
-        </ul>
-
     </div>
 </nav>
