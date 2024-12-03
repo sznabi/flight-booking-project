@@ -1,23 +1,34 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+session_start();
+include 'database.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['bookingData'])) {
-    $data = json_decode($_POST['bookingData'], true);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $bookingData = json_decode($_POST['bookingData'], true);
 
-    if ($data) {
-        $_SESSION['lastBooking'] = $data;
+    $origin = $bookingData['origin'];
+    $destination = $bookingData['destination'];
+    $departure = $bookingData['departure'];
+    $return = $bookingData['returnDate'];
+    $class = $bookingData['class'];
+    $price = $bookingData['price'];
 
-        error_log("Foglalási adatok elmentve: " . print_r($data, true));
+    $stmt = $conn->prepare("INSERT INTO bookings (user_id, origin, destination, departure, `return`, class, price) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("issssss", $_SESSION['user_id'], $origin, $destination, $departure, $return, $class, $price);
+
+    if ($stmt->execute()) {
+        $bookingId = $stmt->insert_id;
 
         header("Location: profile.php");
         exit;
     } else {
-        error_log("Hiba: A foglalási adatok nem dekódolhatók.");
-        echo "Hiba történt az adatok feldolgozása során.";
+        echo "Hiba történt a foglalás mentése során.";
     }
+
+    $stmt->close();
+    $conn->close();
 } else {
-    error_log("Érvénytelen kérés vagy nincs adat.");
     echo "Érvénytelen kérés.";
 }
+?>
+
+

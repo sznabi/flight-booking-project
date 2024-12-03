@@ -222,22 +222,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const confirmBookingButton = document.getElementById("confirmBooking");
     confirmBookingButton.addEventListener("click", (event) => {
         event.preventDefault();
-
+    
         const formData = new FormData(document.getElementById("passengerForm"));
         const passengerData = [];
         let isValid = true;
-
+    
         for (let i = 1; i <= passengers; i++) {
             const firstName = formData.get(`firstName${i}`);
             const lastName = formData.get(`lastName${i}`);
             const dob = formData.get(`dob${i}`);
-
+    
             if (!firstName || !lastName || !dob) {
                 alert(`Utas ${i} adatainál hiányzik egy vagy több mező!`);
                 isValid = false;
                 break;
             }
-
+    
             const birthDate = new Date(dob);
             const today = new Date();
             if (birthDate > today) {
@@ -245,21 +245,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 isValid = false;
                 break;
             }
-
+    
             passengerData.push({ firstName, lastName, dob });
         }
-
+    
         if (isValid) {
-
-
-
-
-
             const form = document.createElement("form");
             form.method = "POST";
             form.action = "saveBooking.php";
-
-            const flightDetails = {
+    
+            const bookingData = {
                 origin: selectedFlight.origin,
                 destination: selectedFlight.destination,
                 departure: selectedFlight.departure,
@@ -269,27 +264,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 totalCost: totalCost,
                 passengers: passengerData
             };
-
-            // Adatok hozzáadása rejtett input mezőként
+    
             const input = document.createElement("input");
             input.type = "hidden";
             input.name = "bookingData";
-            input.value = JSON.stringify(flightDetails);
+            input.value = JSON.stringify(bookingData);
             form.appendChild(input);
-
-            // Form hozzáadása az oldalhoz és elküldése
+    
             document.body.appendChild(form);
             form.submit();
-
-
-
-
-
-
-
-            console.log("Foglalás adatai:", passengerData);
-            alert("Foglalás sikeres! Megtekintheted a járat adatait a profilodon.");
-            window.location.href = "profile.php";
         }
-    });
+    });    
 });

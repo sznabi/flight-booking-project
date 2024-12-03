@@ -1,14 +1,23 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) 
-{
-    session_start();
+session_start();
+include 'database.php';
+
+if (!isset($_SESSION['user_id'])) {
+    echo "Please log in first.";
+    exit;
 }
 
+$userId = $_SESSION['user_id'];
 
-// Ellenőrizzük, hogy van-e elérhető foglalás a munkamenetben
-$booking = isset($_SESSION['lastBooking']) ? $_SESSION['lastBooking'] : null;
+$sql = "SELECT * FROM bookings WHERE user_id = ? ORDER BY id DESC LIMIT 1";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $userId);
+$stmt->execute();
+$result = $stmt->get_result();
 
+$booking = $result->fetch_assoc();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,19 +47,18 @@ $booking = isset($_SESSION['lastBooking']) ? $_SESSION['lastBooking'] : null;
 
             <!-- Profil információk itt -->
             <?php if ($booking): ?>
-        <div>
-            <h3>Foglalási adatok:</h3>
-            <p><strong>Innen:</strong> <?php echo htmlspecialchars($booking['origin']); ?></p>
-            <p><strong>Ide:</strong> <?php echo htmlspecialchars($booking['destination']); ?></p>
-            <p><strong>Indulás:</strong> <?php echo htmlspecialchars($booking['departure']); ?></p>
-            <p><strong>Visszaút:</strong> <?php echo htmlspecialchars($booking['return']); ?></p>
-            <p><strong>Osztály:</strong> <?php echo htmlspecialchars($booking['class']); ?></p>
-            <p><strong>Ár:</strong> <?php echo htmlspecialchars($booking['price']); ?> HUF</p>
-        </div>
-    <?php else: ?>
-        <p>Nincs elérhető foglalási információ.</p>
-    <?php endif; ?>
-
+                <div>
+                    <h3 style="color: #001f3f;">Foglalási adatok:</h3>
+                    <p><strong>Innen:</strong> <?php echo htmlspecialchars($booking['origin']); ?></p>
+                    <p><strong>Ide:</strong> <?php echo htmlspecialchars($booking['destination']); ?></p>
+                    <p><strong>Indulás:</strong> <?php echo htmlspecialchars($booking['departure']); ?></p>
+                    <p><strong>Visszaút:</strong> <?php echo htmlspecialchars($booking['return']); ?></p>
+                    <p><strong>Osztály:</strong> <?php echo htmlspecialchars($booking['class']); ?></p>
+                    <p><strong>Ár:</strong> <?php echo htmlspecialchars($booking['price']); ?> HUF</p>
+                </div>
+            <?php else: ?>
+                <p>Nincs elérhető foglalási információ.</p>
+            <?php endif; ?>
         </div>
     </div>
 

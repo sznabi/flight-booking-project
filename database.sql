@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE flights (
+CREATE TABLE IF NOT EXISTS flights (
     id INT AUTO_INCREMENT PRIMARY KEY,
     origin VARCHAR(255) NOT NULL,
     destination VARCHAR(255) NOT NULL,
@@ -22,6 +22,18 @@ CREATE TABLE flights (
     available_seats INT NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
     class VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS bookings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    origin VARCHAR(255),
+    destination VARCHAR(255),
+    departure DATE,
+    `return` DATE,
+    class VARCHAR(50),
+    price DECIMAL(10, 2),
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 INSERT INTO flights (origin, destination, departure, return_date, available_seats, price, class)
