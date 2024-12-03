@@ -25,9 +25,14 @@ if (session_status() == PHP_SESSION_NONE)
                 window.location.href = 'index.php';
             }
         </script>
+    </header>
+
+    <div class="container" id="profile">
+        <div class="section__container">
         <p>Üdvözlünk, <?php echo $_SESSION['fullname']; ?>!</p>
         <!-- Profil információk itt -->
-    </header>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-content">
