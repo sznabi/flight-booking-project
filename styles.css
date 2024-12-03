@@ -75,6 +75,13 @@ body {
 }
 
  /* NAVBAR, HEADER CSS */
+ 
+.nav_container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
 
  nav {
   max-width: 100%;
@@ -82,12 +89,12 @@ body {
   padding: 1rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  position: relative;
   gap: 1rem;
   background-color: #001f3f;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
-
-
 
 .nav_logo a {
   font-size: 1.5rem;
@@ -105,8 +112,6 @@ body {
 .nav_links {
   list-style: none;
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 2rem;
 }
 
@@ -461,7 +466,7 @@ footer p {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-#contact {
+#contact, #profile {
   max-width: 800px !important;
   margin: 0 auto;
   padding: 50px;
@@ -513,7 +518,7 @@ transform: scale(0.95);
   height: 400px;
 }
 
-#contact h2 {
+#contact h2, #profile h2 {
   margin-top: 15px;
   margin-bottom: 20px;
   text-align: center;
@@ -848,41 +853,6 @@ box-sizing: border-box;
   }
 }
 
-/* Alapstílusok */
-nav {
-  padding: 0.5rem 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-}
-
-.nav_container {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: space-between;
-}
-
-.nav_logo a {
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.nav_links {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
-}
-
-.nav_links a {
-  text-decoration: none;
-  font-size: 1rem;
-}
-
 /* Hamburger menü stílusok */
 .hamburger {
   display: none;
@@ -901,7 +871,7 @@ nav {
   background-color: #fff;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .nav_links {
       display: none;
       flex-direction: column;
