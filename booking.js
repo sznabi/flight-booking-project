@@ -250,6 +250,43 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (isValid) {
+
+
+
+
+
+            const form = document.createElement("form");
+            form.method = "POST";
+            form.action = "saveBooking.php";
+
+            const flightDetails = {
+                origin: selectedFlight.origin,
+                destination: selectedFlight.destination,
+                departure: selectedFlight.departure,
+                returnDate: selectedFlight.return,
+                class: selectedFlight.class,
+                price: selectedFlight.price,
+                totalCost: totalCost,
+                passengers: passengerData
+            };
+
+            // Adatok hozzáadása rejtett input mezőként
+            const input = document.createElement("input");
+            input.type = "hidden";
+            input.name = "bookingData";
+            input.value = JSON.stringify(flightDetails);
+            form.appendChild(input);
+
+            // Form hozzáadása az oldalhoz és elküldése
+            document.body.appendChild(form);
+            form.submit();
+
+
+
+
+
+
+
             console.log("Foglalás adatai:", passengerData);
             alert("Foglalás sikeres! Megtekintheted a járat adatait a profilodon.");
             window.location.href = "profile.php";

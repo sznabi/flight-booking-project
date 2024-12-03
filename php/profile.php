@@ -3,6 +3,11 @@ if (session_status() == PHP_SESSION_NONE)
 {
     session_start();
 }
+
+
+// Ellenőrizzük, hogy van-e elérhető foglalás a munkamenetben
+$booking = isset($_SESSION['lastBooking']) ? $_SESSION['lastBooking'] : null;
+
 ?>
 
 <!DOCTYPE html>
@@ -29,8 +34,23 @@ if (session_status() == PHP_SESSION_NONE)
     <div class="container" id="profile">
         <h2>Profil</h2>
         <div class="section__container">
-        <p>Üdvözlünk, <?php echo $_SESSION['fullname']; ?>!</p>
-        <!-- Profil információk itt -->
+            <p>Üdvözlünk, <?php echo $_SESSION['fullname']; ?>!</p>
+
+            <!-- Profil információk itt -->
+            <?php if ($booking): ?>
+        <div>
+            <h3>Foglalási adatok:</h3>
+            <p><strong>Innen:</strong> <?php echo htmlspecialchars($booking['origin']); ?></p>
+            <p><strong>Ide:</strong> <?php echo htmlspecialchars($booking['destination']); ?></p>
+            <p><strong>Indulás:</strong> <?php echo htmlspecialchars($booking['departure']); ?></p>
+            <p><strong>Visszaút:</strong> <?php echo htmlspecialchars($booking['return']); ?></p>
+            <p><strong>Osztály:</strong> <?php echo htmlspecialchars($booking['class']); ?></p>
+            <p><strong>Ár:</strong> <?php echo htmlspecialchars($booking['price']); ?> HUF</p>
+        </div>
+    <?php else: ?>
+        <p>Nincs elérhető foglalási információ.</p>
+    <?php endif; ?>
+
         </div>
     </div>
 
@@ -45,5 +65,6 @@ if (session_status() == PHP_SESSION_NONE)
             <p>Kreiniker Ákos, Nagy Szabolcs Benjámin, Tabajdi Bálint</p>
         </div>
     </footer>
+    <script src="../booking.js"></script>
 </body>
 </html>
