@@ -18,7 +18,6 @@ if (session_status() == PHP_SESSION_NONE)
     <?php include 'navbar.php'; ?> <!-- Betöltjük a közös navigációs sávot -->
 
     <header>
-        <h1>Profil oldal</h1>
         <script>
             if (!<?php echo isset($_SESSION['email']) ? 'false' : 'true'; ?>) {
                 alert("Be kell jelentkeznie vagy regisztrálnia kell!");
@@ -28,6 +27,7 @@ if (session_status() == PHP_SESSION_NONE)
     </header>
 
     <div class="container" id="profile">
+        <h2>Profil</h2>
         <div class="section__container">
         <p>Üdvözlünk, <?php echo $_SESSION['fullname']; ?>!</p>
         <!-- Profil információk itt -->
