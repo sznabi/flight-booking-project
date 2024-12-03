@@ -2,6 +2,11 @@
 session_start();
 include 'database.php';
 
+if (!isset($_SESSION['user_id'])) {
+    echo "<script>alert('A foglaláshoz először regisztráljon vagy jelentkezzen be!'); window.location.href='login.php';</script>";
+    exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $bookingData = json_decode($_POST['bookingData'], true);
 
