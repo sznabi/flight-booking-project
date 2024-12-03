@@ -288,7 +288,13 @@ document.addEventListener("DOMContentLoaded", () => {
 // FOGLALAS
 function bookFlight(flightId, availableSeats) {
     const passengers = parseInt(document.getElementById("passengersSelect").value);
-    const selectedClass = document.querySelector("#classSelector .active")?.dataset.type || "Bármely";
+
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    
+    if (!isLoggedIn) {
+        alert("Hiba: A foglaláshoz jelentkezz be!");
+        return;
+    }
 
     if (isNaN(passengers) || passengers <= 0) {
         alert("Hiba: Kérlek, add meg hányan szeretnétek utazni!");
@@ -303,6 +309,7 @@ function bookFlight(flightId, availableSeats) {
     const bookingUrl = `booking.php?flightId=${flightId}&passengers=${passengers}`;
     window.location.href = bookingUrl;
 }
+
 
 // GALERIA SCRIPT
 let slideIndex = 0;

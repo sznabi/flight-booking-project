@@ -2,22 +2,18 @@
 session_start();
 include 'database.php';
 
-if (!isset($_SESSION['user_id'])) {
-    echo "Please log in first.";
-    exit;
+if (isset($_SESSION['user_id'])) {
+    $userId = $_SESSION['user_id'];
+
+    $sql = "SELECT * FROM bookings WHERE user_id = ? ORDER BY id DESC LIMIT 1";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    $booking = $result->fetch_assoc();
 }
-
-$userId = $_SESSION['user_id'];
-
-$sql = "SELECT * FROM bookings WHERE user_id = ? ORDER BY id DESC LIMIT 1";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $userId);
-$stmt->execute();
-$result = $stmt->get_result();
-
-$booking = $result->fetch_assoc();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">

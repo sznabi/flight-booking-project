@@ -16,9 +16,10 @@ include 'navbar.php';
     <div class="container">
     <?php
 
-    // Ha már be van jelentkezve, irányítsuk át a kezdőoldalra
+    // Ha már be van jelentkezve, irányítsuk át az index oldalra
     if (isset($_SESSION["user_id"])) {
-        header("Location: index.php");
+        // JavaScript-et használunk a localStorage beállítására
+        echo "<script>localStorage.setItem('isLoggedIn', 'true'); window.location.href = 'index.php';</script>";
         exit();
     }
 
@@ -26,30 +27,31 @@ include 'navbar.php';
         $email = $_POST["email"];
         $password = $_POST["password"];
 
-        // Ha valamelyik mező üres, hibaüzenetet jelenítünk meg
-        if(empty($email) OR empty($password)) {
-            echo "<div class='alert alert-danger'>Minden mezőt ki kell tölteni!</div>";
+        if (empty($email) || empty($password)) {
+            echo "<div class='alert alert-danger' style='color: white;'>Minden mezőt ki kell tölteni!</div>";
         } else {
             require_once "database.php";
-            $sql = "SELECT * FROM users WHERE email = '$email'";  // Az email cím alapján keresünk a táblában
+            $sql = "SELECT * FROM users WHERE email = '$email'";  
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) == 0) {
-                // Ha nincs ilyen email cím, hibaüzenetet jelenítünk meg
-                echo "<div class='alert alert-danger'>Nincs ilyen felhasználó!</div>";
+                echo "<div class='alert alert-danger' style='color: white;'>Nincs ilyen felhasználó!</div>";
             } else {
-                // Ha létezik a felhasználó, ellenőrizzük a jelszót
                 $row = mysqli_fetch_assoc($result);
                 if (password_verify($password, $row['password'])) {
-                    $_SESSION["user_id"] = $row["id"];  // Ha a jelszó helyes, session-ben tároljuk a felhasználót
+                    $_SESSION["user_id"] = $row["id"];
                     $_SESSION["fullname"] = $row["fullname"];
+                    
+                    // Success - Set localStorage via JavaScript
+                    echo "<script>localStorage.setItem('isLoggedIn', 'true'); window.location.href = 'index.php';</script>";
                     exit();
                 } else {
-                    echo "<div class='alert alert-danger'>Hibás jelszó!</div>";
+                    echo "<div class='alert alert-danger' style='color: white;'>Hibás jelszó!</div>";
                 }
             }
         }
     }
     ?>
+
     <h2>Bejelentkezés</h2>
     <form action="login.php" method="post">
         <div class="form-group">
