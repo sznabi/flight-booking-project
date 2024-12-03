@@ -16,9 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("issssss", $_SESSION['user_id'], $origin, $destination, $departure, $return, $class, $price);
 
     if ($stmt->execute()) {
-        $bookingId = $stmt->insert_id;
-
-        header("Location: profile.php");
+        echo "<script>alert('Foglalás sikeresen mentve!'); window.location.href='profile.php';</script>";
         exit;
     } else {
         echo "Hiba történt a foglalás mentése során.";
