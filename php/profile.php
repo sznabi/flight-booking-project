@@ -24,7 +24,7 @@ $booking = isset($_SESSION['lastBooking']) ? $_SESSION['lastBooking'] : null;
 
     <header>
         <script>
-            if (!<?php echo isset($_SESSION['email']) ? 'false' : 'true'; ?>) {
+            if (<?php echo isset($_SESSION['fullname']) ? 'false' : 'true'; ?>) {
                 alert("Be kell jelentkeznie vagy regisztrálnia kell!");
                 window.location.href = 'index.php';
             }
