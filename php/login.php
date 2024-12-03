@@ -42,10 +42,8 @@ include 'navbar.php';
                 if (password_verify($password, $row['password'])) {
                     $_SESSION["user_id"] = $row["id"];  // Ha a jelszó helyes, session-ben tároljuk a felhasználót
                     $_SESSION["fullname"] = $row["fullname"];
-                    header("Location: index.php");  // A sikeres bejelentkezés után irányítás a kezdőoldalra
                     exit();
                 } else {
-                    // Ha a jelszó helytelen, hibaüzenetet jelenítünk meg
                     echo "<div class='alert alert-danger'>Hibás jelszó!</div>";
                 }
             }

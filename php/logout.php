@@ -2,10 +2,9 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-session_unset(); // Törli az összes session változót
-session_destroy(); // Lezárja a session-t
+session_unset();
+session_destroy();
 
-// Átirányítás a bejelentkezési oldalra
 header("Location: index.php");
 exit();
 ?>

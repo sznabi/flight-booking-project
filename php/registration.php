@@ -1,5 +1,4 @@
 <?php
-// Betöltjük a navbar.php fájlt, amely a navigációs sávot tartalmazza
 include 'navbar.php';
 ?>
 
@@ -49,7 +48,7 @@ include 'navbar.php';
         }
 
         require_once "database.php";
-        $sql = "SELECT * FROM users WHERE email = '$email'";  // Most már csak az email címet ellenőrizzük
+        $sql = "SELECT * FROM users WHERE email = '$email'";
         $result = mysqli_query($conn, $sql);
         $rowCount = mysqli_num_rows($result);
         if ($rowCount > 0) {
@@ -69,7 +68,6 @@ include 'navbar.php';
                 mysqli_stmt_execute($stmt);
                 echo "<div class='alert alert-success'>Sikeres regisztráció!</div>";
                 
-                // Irányítás a kezdőoldalra
                 header("Location: index.php");
                 exit();
             } else {

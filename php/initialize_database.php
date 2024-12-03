@@ -10,7 +10,6 @@ if ($conn->connect_error) {
     die("Adatbázis kapcsolat sikertelen: " . $conn->connect_error);
 }
 
-// Adatbázis létrehozása, ha nem létezik
 $sqlCreateDb = "CREATE DATABASE IF NOT EXISTS $dbName";
 if ($conn->query($sqlCreateDb) === TRUE) {
     echo "Adatbázis ellenőrizve/létrehozva.<br>";
@@ -18,10 +17,8 @@ if ($conn->query($sqlCreateDb) === TRUE) {
     die("Hiba az adatbázis létrehozásában: " . $conn->error);
 }
 
-// Adatbázis használata
 $conn->select_db($dbName);
 
-// Tábla létrehozása, ha nem létezik
 $sqlCreateTable = "
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,

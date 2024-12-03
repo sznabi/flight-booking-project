@@ -8,7 +8,7 @@
     <title>Foglalás</title>
 </head>
 <body>
-<?php include 'navbar.php'; ?> <!-- Dinamikus menüsor egyszer megírva, mindenhova behívva -->
+<?php include 'navbar.php'; ?>
 
     <div id="booking" class="container">
         <h1 style="margin-bottom: 20px;">Foglalási oldal</h1>

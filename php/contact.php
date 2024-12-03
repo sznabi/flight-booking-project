@@ -1,5 +1,4 @@
 <?php
-// Betöltjük a navbar.php fájlt, amely a navigációs sávot tartalmazza
 include 'navbar.php';
 ?>
 
